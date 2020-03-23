@@ -48,6 +48,8 @@ Additionally, the bolded challenges have already been created.
 - CSRF (manually verify)(6)
 - Filter bypass on regex (5)
 - AWS Priv Esc (7)
+- Basic SQLi (5) 
+- Timing based SQLi? (5) 
 - Host header injection for an email reset link (5)
 - Facial recognition bypass (Sebs react app. Can use a picture of someone!)(ask Sebs) (7)
 - Request type implicit assumption (if not post, then get). (5)
@@ -58,6 +60,7 @@ Additionally, the bolded challenges have already been created.
   - Unsure what to do here...
 - Relative file path issues (symbolic links)(6)
 - Digital Signatures or HMACs (manually verify) (3)
+- Basic Linux Commands (introduction to Linux) 
 - **Exploit mitigations (manually verify)**
 	- (NX, ASLR, Stack Canaries)
 - Blockchain challenges (resuse SI's setup) (10)
