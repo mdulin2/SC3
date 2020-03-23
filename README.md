@@ -1,5 +1,5 @@
 # SC3
-The second occurence of the Spokane Mayor's Cyber Cup! Here's to another great year :)
+The third occurence of the Spokane Mayor's Cyber Cup! Here's to another great year :)
 
 Organization
 Each directory comes with a challenge file, an Info file and a solution file.
@@ -54,10 +54,13 @@ Additionally, the bolded challenges have already been created.
 - **Exploit mitigations (manually verify)**
 	- (NX, ASLR, Stack Canaries)
 - Blockchain challenges (resuse SI's setup) (10)
+	- Hopefully get Ben Stewart to set this up
 - OSINT (5):
 	- Private key for server 
 	- Password reset info
-- Beating Max Dulin A.I for Othello (4):
+- **Beating Max Dulin A.I for Othello**:
+	- https://github.com/mdulin2/Othello
+	- Just a previous school project 
 - Format string vuln (write or read) (7) 
 - Source code analysis (manual verification) (6):
 - DoS (based upon timeout) (8)
