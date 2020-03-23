@@ -14,6 +14,13 @@ Info.md: How to use the application/challenge.
 Some challenge directories will have multiple challenges in one. For instance, the Forensics and log analysis questions will have multiple challenges per directory. The Challenge.md will have these labeled as seperate challenges and the Solutions file will have multiple answers, each corresponding to the solutions.
 
 
+## Improvements 
+- GET MORE PEOPLE INVOLVED writing challenges
+- Recruit early and often 
+- Bigger than last year 
+- Dockerize everything (Vanessa Nguyen) 
+- Test challenges from the testing location (EWU) 
+
 ## Potential Challenges 
 This is organized in the following way: the type of challenge and the difficulty in creating the challenge.   
 Additionally, the bolded challenges have already been created. 
