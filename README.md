@@ -52,6 +52,7 @@ Additionally, the bolded challenges have already been created.
 - Timing based SQLi? (5) 
 - Host header injection for an email reset link (5)
 - Facial recognition bypass (Sebs react app. Can use a picture of someone!)(ask Sebs) (7)
+	- https://github.com/sebvargas/MLFacialRecognition/blob/master/InstallationDocs.md
 - Request type implicit assumption (if not post, then get). (5)
 - Fun heap corruption (2)
 - Shellcode writing (3)
