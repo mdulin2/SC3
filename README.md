@@ -29,6 +29,7 @@ Additionally, the bolded challenges have already been created.
 - Bad switch statement (4) 
 - CRLF injection (?)
 - HTTP smuggling (11)
+- **Fun with signal calls**
 	- Probably not something to do...
 - Android connection emulation (10)
 - Buffer Overflow series (6): 
