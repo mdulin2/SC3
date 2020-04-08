@@ -74,6 +74,7 @@ If somebody has ANY other ideas, then please go crazy and create the challenge! 
 	- (NX, ASLR, Stack Canaries)
 - **Format string vuln** (7) 
 - Memory corruption via driving game with ASCII graphics  (9) 
+- **Race Track** (Heap Memory Corruption) (8) 
 
 ### Linux
 - **Fun with signal calls**
