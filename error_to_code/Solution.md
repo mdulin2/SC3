@@ -15,9 +15,10 @@
     - ``ls: asfasfd: No such file or directory``
 - How can we turn this into code? 
 
+
 ### Exploit 
 - Can you think of anything that would allow for ``ls: something?`` in the code. To me, this looks like a *label* in traditionally assembly. 
 - A label is used for jumps in assembly. However, these GOTO's are also supported in Perl land! 
 - However, there is still the ``: No such file or directory`` at the end of this. In order to cancel that out, add a ``#``, which is a Perl comment, to comment out this part of the code. 
 - We now that we can put this into Perl (because it supports labels.) How do we execute the code? 
-- 
+

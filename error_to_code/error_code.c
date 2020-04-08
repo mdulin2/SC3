@@ -16,7 +16,7 @@ Two answers:
 
 // In particular, disallow semicolons, backticks, single quotes, dollar signs and other shell characters. 
 // Only allows alphanumeric, parens, single/double quotes and backslashes
-char* white_lst = "abcdefghijklmnopqrstuvwxyz'1234567890# .";
+char* white_lst = "abcdefghijklmnopqrstuvwxyz'1234567890#\"\\ .";
 //char *white_lst = "abcdefghijklmnopqrstuvwxyz'1234567890# .\\\"()";
 /*
 Ensure that all characters in the string are in the whitelisted character sheet 
@@ -48,6 +48,7 @@ int main(int argc, char* argv[]){
 
 	if(argc != 3){
 		puts("./error <file_name> <code_type>"); 
+		return 1;
 	}
 
 	// Copy arguement 1 into a buffer
@@ -65,12 +66,12 @@ int main(int argc, char* argv[]){
 	}
 	
 	// The main command being ran 	
-	char* command1 = "ls"; 
+	char* command1 = "tcpdump -d -r"; 
 	// Get the output from stderr and redirect it. 
 	char* command2 = "2>&1 >/dev/null |"; 
 
 	// Calculate the size of the buffer. We add an extra 5 because of the spaces and double quotes in the snprintf used below.
-	int command_size = strlen(command1) + strlen(file) + strlen(command2) + strlen(argv[2]) + 5; 
+	int command_size = strlen(command1) + strlen(file) + strlen(command2) + strlen(argv[2]) + 6; 
 	char* full_command = malloc(command_size); 
 
 	// Concatenates the string to create the OS command using snprintf
