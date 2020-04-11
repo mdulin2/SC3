@@ -58,8 +58,8 @@ If somebody has ANY other ideas, then please go crazy and create the challenge! 
 		- When adding a new authorization (by adding a certain value), make a call that will do this not once but twice.
 		- This will overall into the next field, which happens to make them an admin (give them the flag at this point) 
 		- Permission model based upon bits being set (overflow)
-- Curl! 
-	- Make a PUT request onto an API? 
+- **Curl** (POST_DELETE): 
+	- Make POST and DELETE requests.
 		
 ### Memory Corruption
 - Buffer Overflow series (6): 
