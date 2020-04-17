@@ -31,6 +31,8 @@ If somebody has ANY other ideas, then please go crazy and create the challenge! 
 
 ### Web 
 - Insecure Wordpress extension (RCE or something) (8)
+- Case insensitive check causing issues 
+	- Good example: https://insomniasec.com/blog/auth0-jwt-validation-bypass
 - CRLF injection (?)
 - Bypassing restrictions by patching binaries (4)
 - Insecure file upload (6)
@@ -116,3 +118,4 @@ If somebody has ANY other ideas, then please go crazy and create the challenge! 
 - Secrets in log files for some website 
 - Log analysis 
 - Others.. Corey? 
+- Mitigation (firewall rules or something?) 
