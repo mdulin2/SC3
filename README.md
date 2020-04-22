@@ -26,7 +26,9 @@ Some challenge directories will have multiple challenges in one. For instance, t
 This is organized in the following way: the type of challenge and the difficulty in creating the challenge.   
 Additionally, the bolded challenges have already been created.   
   
-If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted!
+If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted!  
+  
+Total amount of finished challenges: 13 finished challenges
 
 
 ### Web 
