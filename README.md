@@ -92,7 +92,9 @@ Total amount of finished challenges: 13 finished challenges
 - **OTP bypass by flooding OTP values** 
 - **Error message into code exec**
 - Bad default handling (6) 
-  - Unsure what to do here...
+  - Try catch block with an initally set value
+  - Convert input to an integer, then use this as a case statement to determine auth level
+  - With the originally set value of the int (0), this could act as a bad default handling
 - Relative file path issues (symbolic links)(6)
 
 ### Misc
