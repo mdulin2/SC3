@@ -4,8 +4,8 @@ import subprocess
 import os
 import random
 import string 
-
-# TODO: Add properly error handling for the main server 
+from threading import Thread, Event
+import time
 
 # Validate that the bytes of the file are extremely close in size
 def validate(filename):
@@ -54,43 +54,60 @@ def randomString(stringLength=8):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(stringLength))
 
+# Runs the main server on loop 
+# s: Socket object 
+def server(s=None,sc=None):
+    print("Connection has been made...")
+    sc, address = s.accept()
+            
+    # Generate the random file 
+    newfile = "./tmp/" + randomString()
+    f = open(newfile,"bw") # open in binary
+
+    line = sc.recv(1024)
+        
+    # Write to file, recieving 1024 bytes at a time.
+    while (line):
+        f.write(line)
+        line = sc.recv(1024)
+    f.close()
+        
+    # If the files are more than 10 bytes different
+    # Validate the files 'byte-by-byte' (try to find files less than 10 bytes in difference
+    if( not validate(newfile)):
+        sc.send(bytes("Files too different...exiting.", "utf-8"))
+        os.remove(newfile)
+
+    # If the file is valid or not. 
+    else:
+            # Execute the code and return the output to the client
+        output = execute(newfile)               
+        os.remove(newfile)
+        sc.send(output, 1024) # Would like to send back a response
+
+    sc.close()
+
 # Runs the web server
 def main():
     s = socket.socket()
-    s.bind(("localhost",3000))
+    s.bind(("localhost",3004))
     s.listen(10)
-    i=1
-    while True:
-        print("Connection has been made...")
-        # Insert a random number... Create this as a file
-        sc, address = s.accept()
-        
-        # Generate the random file 
-        newfile = "./tmp/" + randomString()
-        f = open(newfile,"bw") # open in binary
 
-        line = sc.recv(1024)
-        
-        # Write to file, recieving 1024 bytes at a time.
-        while (line):
-            f.write(line)
-            line = sc.recv(1024)
-        f.close()
-        
-        # If the files are more than 10 bytes different
-        # Validate the files 'byte-by-byte' (try to find files less than 10 bytes in difference
-        if( not validate(newfile)):
-            sc.send(bytes("Files too different...exiting.", "utf-8"))
-            os.remove(newfile)
+    # Runs the main server in a loop.
+    # Moved this to its own function in order to have timeouts initiated with try-catch blocks...    
+    while(True): 
+        try:
+            
+            # The main server component, with a built in timeout feature 
+            thread = Thread(target=server,kwargs=dict(s=s))
+            thread.start() 
+            thread.join(timeout=5)
 
-        # If the file is valid or not. 
-        else:
-                # Execute the code and return the output to the client
-            output = execute(newfile)               
-            os.remove(newfile)
-            sc.send(output, 1024) # Would like to send back a response
-
-        sc.close()
+        # Quit the service after a keyboard interrupt (nice for testing)
+        except KeyboardInterrupt:
+            raise
+        except: 
+            print("Something went wrong on the call...")
 
     s.close()
 
