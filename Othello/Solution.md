@@ -1,0 +1,15 @@
+## Solution 
+- The goal is to beat the A.I. of the game (Othello). 
+- How is this done? The Othello A.I. values two things above all else: 
+	- Mobility and corners. 
+	- Everything else is secondary to do the A.I. 
+- Strats:
+	- In Othello, giving up corners is REALLY bad. So, do not give up corners at ANY cost. 
+	- Mobility: Having lots of moves.  The A.I. is really good at taking all of the moves from a user or forcing them to make terrible moves. 
+- Flaws: 
+	- The A.I. has two major flaws: 
+		- It will not play in spots around the corners essentially no matter what. 
+		- It does not value the edges well enough. 
+	- In order to exploit these flaws (to win) do the following: 
+		- DO NOT play in spots directly around the corners (i.e. 2A, 1B and 2B). This will force the A.I. to make bad decisions on placement. 
+		- Take control of the sides early! This makes it difficult for the A.I to control the full board.
