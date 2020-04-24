@@ -1,18 +1,15 @@
 # SC3
-The third occurence of the Spokane Mayor's Cyber Cup! Here's to another great year :)
+The third occurence of the Spokane Mayor's Cyber Cup! Here's to another great year :)  
+  
+## Organization 
+Organization in this is CRUCIAL. Please adhere to the following when writing a challenge. Each directory comes with the following: 
+- *Challenge* file
+- *Solution* file
+- Optional *Info* file (for setup details and other notes) 
+- *Challanges* themselves. 
+- *Coming Soon* - Dockerized version of the challenges (that needed to be Dockerized, that is) 
 
-Organization
-Each directory comes with a challenge file, an Info file and a solution file.
-For instance, the easy redirect folder has four files:
-
-flag.py: The web service that gives the flag. In most situations, this will be a text file.
-redirect_fun.py: The web service trying to be exploited.
-Challenge.md: The challenge/s being given to the contestant.
-Solution.md: The solution on how to solve the problem. This is to ensure that the coaches are able to help.
-Info.md: How to use the application/challenge.
-
-Some challenge directories will have multiple challenges in one. For instance, the Forensics and log analysis questions will have multiple challenges per directory. The Challenge.md will have these labeled as seperate challenges and the Solutions file will have multiple answers, each corresponding to the solutions.  
- 
+Some challenge directories will have multiple challenges in one. For instance, the Forensics and log analysis questions will have multiple challenges per directory. The Challenge.md will have these labeled as seperate challenges and the Solutions file will have multiple answers, each corresponding to the solutions.    
 
 
 ## Improvements 
@@ -28,7 +25,7 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted!  
   
-Total amount of finished challenges: 13 finished challenges
+Total amount of finished challenges: 14 finished challenges
 
 
 ### Web 
@@ -42,7 +39,8 @@ Total amount of finished challenges: 13 finished challenges
 - Parameter tampering on POST request (use BURP :)) (4)
 - Filter bypass on regex (5)
 - AWS Priv Esc (7)
-- Basic SQLi (5) 
+- Isis Blog(5) 
+	- SQLi on content
 - Timing based SQLi? (7) 
 - Host header injection for an email reset link (5)
 - Facial recognition bypass (Sebs react app. Can use a picture of someone!)(ask Sebs) (7)
@@ -67,8 +65,8 @@ Total amount of finished challenges: 13 finished challenges
 		
 ### Memory Corruption
 - Buffer Overflow series (6): 
-	- Alter a variable on the stack 
-	- Write a proper variable on the stack (Done) 
+	- **Alter a variable on the stack** 
+	- **Write a proper variable on the stack**
 	- Redirect execution of the binary to a new function (auth, but diff) 
 	- Shellcode/ROP
 - Fun heap corruption (2)
@@ -99,9 +97,10 @@ Total amount of finished challenges: 13 finished challenges
 
 ### Misc
 - Android connection emulation (10)
-- **Beating Max Dulin A.I for Othello**:
+- **Othello**:
 	- https://github.com/mdulin2/Othello
-	- Just a previous school project 
+	- Just a previous school project from Max Dulin. 
+	- It has been thrown in here for a fun little challenge
 - OSINT (5):
 	- Private key for server 
 	- Password reset info
@@ -109,9 +108,12 @@ Total amount of finished challenges: 13 finished challenges
 - Soldering (?) 
 - Blockchain challenges (resuse SI's setup) (10)
 	- Hopefully get Ben Stewart to set this up
+- **Signs** 
+	- Pattern recognition
 
 ### Crypto/Math Math: 
 - Statistics math problems (? -Jeb)
+- Elliptic Curves
 - Combinatorics
 - Digital Signatures or HMACs (manually verify) (3)
 - Cesar Cipher 
