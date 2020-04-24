@@ -33,7 +33,6 @@ Total amount of finished challenges: 14 finished challenges
 - Case insensitive check causing issues 
 	- Good example: https://insomniasec.com/blog/auth0-jwt-validation-bypass
 - CRLF injection (?)
-- Bypassing restrictions by patching binaries (4)
 - Insecure file upload (6)
 - Simple IDOR (6)
 - Parameter tampering on POST request (use BURP :)) (4)
@@ -77,7 +76,8 @@ Total amount of finished challenges: 14 finished challenges
 - **Format string vuln** (7) 
 - Memory corruption via driving game with ASCII graphics  (9) 
 - **Race Track** (Heap Memory Corruption) (8) 
-
+- **Patch**
+	- Bypassing restrictions via altering the binary itself.
 ### Linux
 - **Fun with signal calls**
 - Basic Linux Commands (introduction to Linux) 
