@@ -4,9 +4,13 @@
 /*
 Compile: 
 `gcc -m32 dead.c -fno-stack-protector -o dead`
+
+socat TCP-LISTEN:2323,reuseaddr,fork EXEC:"./dead"
 */
 
 int main(){
+
+	setvbuf(stdout, NULL, _IONBF, 0);
 
 	// Create a local variable on the stack 
 	char my_string[8];

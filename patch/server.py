@@ -1,3 +1,8 @@
+'''
+python3 server.py 
+	- Make sure that the script has access to the ./tmp folder. Otherwise, the program will crash.
+'''
+
 import socket
 import sys
 import subprocess 
