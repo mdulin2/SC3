@@ -26,7 +26,9 @@ Some challenge directories will have multiple challenges in one. For instance, t
 This is organized in the following way: the type of challenge and the difficulty in creating the challenge.   
 Additionally, the bolded challenges have already been created.   
   
-If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted!
+If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted!  
+  
+Total amount of finished challenges: 13 finished challenges
 
 
 ### Web 
@@ -90,7 +92,9 @@ If somebody has ANY other ideas, then please go crazy and create the challenge! 
 - **OTP bypass by flooding OTP values** 
 - **Error message into code exec**
 - Bad default handling (6) 
-  - Unsure what to do here...
+  - Try catch block with an initally set value
+  - Convert input to an integer, then use this as a case statement to determine auth level
+  - With the originally set value of the int (0), this could act as a bad default handling
 - Relative file path issues (symbolic links)(6)
 
 ### Misc
