@@ -46,7 +46,7 @@ Total amount of finished challenges: 14 finished challenges
 	- https://github.com/sebvargas/MLFacialRecognition/blob/master/InstallationDocs.md
 - Template injection (5)
 - Source code analysis (manual verification) (6):
-- Typing game (6): 
+- Typing game (6) (Andrew): 
 	- Get a speed of xyz by scripting the entire thing to become the greatest typer ever. 
 - Tenent Management/pop quiz
 	- First flag (IDOR) 
@@ -113,7 +113,7 @@ Total amount of finished challenges: 14 finished challenges
 
 ### Crypto/Math Math: 
 - Statistics math problems (? -Jeb)
-- Elliptic Curves
+- Elliptic Curves (Jeb) 
 - Combinatorics
 - Digital Signatures or HMACs (manually verify) (3)
 - Cesar Cipher 
