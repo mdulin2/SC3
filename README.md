@@ -64,6 +64,7 @@ Total amount of finished challenges: 20 finished challenges:
 		- When adding a new authorization (by adding a certain value), make a call that will do this not once but twice.
 		- This will overall into the next field, which happens to make them an admin (give them the flag at this point) 
 		- Permission model based upon bits being set (overflow)
+- JWT Issue (Rachael) (?)
 - **POST_DELETE**: 
 	- Make POST and DELETE requests to an endpoint
 		
