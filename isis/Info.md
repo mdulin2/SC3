@@ -12,3 +12,8 @@ Run the following command while in the 'src' directory:
 ```
 sudo docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest
 ```
+
+Login to the instance: 
+```
+sudo docker exec -it <instance_name> /bin/bas
+```
