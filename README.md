@@ -26,7 +26,7 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted (even some Stegography). 
   
-Total amount of finished challenges: 20 finished challenges: 
+The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 20 finished challenges: 
 - Web: 1
 - Binary: 9
 - Linux: 8
@@ -65,6 +65,7 @@ Total amount of finished challenges: 20 finished challenges:
 		- This will overall into the next field, which happens to make them an admin (give them the flag at this point) 
 		- Permission model based upon bits being set (overflow)
 - JWT Issue (Rachael) (?)
+- Deserialization/Command Injection/Something (Ken) (?)
 - **POST_DELETE**: 
 	- Make POST and DELETE requests to an endpoint
 		
