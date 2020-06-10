@@ -8,7 +8,7 @@ define('HOST', 'localhost');
 define('DATABASE', 'al_qaeda');
  
 try {
-    $connection = new PDO("mysql:host=".HOST.";dbname=".DATABASE, USER, PASSWORD);
+    $connection = new PDO("mysql:host=".HOST.";dbname=".DATABASE, USER, PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 } catch (PDOException $e) {
     exit("Error: " . $e->getMessage());
 }

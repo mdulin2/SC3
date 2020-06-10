@@ -2,7 +2,7 @@
 
 <html>
  <head>
-  <title>Isis</title>
+  <title>Al Qaeda</title>
  </head>
  <body>
     <div display = "flex" style ="display: flex; justify-content: space-evenly; border: 5px solid black;">
@@ -44,14 +44,17 @@ if (isset($_POST['login'])) {
     $result = $query->fetch(PDO::FETCH_ASSOC);
 
     if (!$result) {
+        echo md5($password); 
+        echo $result['password']; 
         echo '<p class="error">Username password combination is wrong!</p>';
     } else {
         
-        if (password_verify($password, $result['password'])) {
+        if (md5($password) === $result['password']) {
 
             // Set the value of the session token 
             $_SESSION['user_id'] = $result['id'];
             echo '<p class="success">Congratulations, you are logged in!</p>';
+            header("Location: /admin.php");
         } else {
             echo '<p class="error">Username password combination is wrong!</p>';
         }

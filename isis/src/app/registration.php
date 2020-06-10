@@ -1,7 +1,7 @@
 
 <html>
  <head>
-  <title>Isis</title>
+  <title>Al Qaeda</title>
  </head>
  <body>
     <div display = "flex" style ="display: flex; justify-content: space-evenly; border: 5px solid black;">
@@ -35,24 +35,20 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'];
 
     // Hash the password 
-    // TODO: Change to MD5
-    $password_hash = password_hash($password, PASSWORD_BCRYPT);
+    $password_hash = md5($password);
 
     // Creating a new user 
-    if ($query->rowCount() == 0) {
+    // Create the safe query for the SQL statement
+    $query = $connection->prepare("INSERT INTO users(USERNAME,PASSWORD) VALUES (:username,:password_hash)");
+    $query->bindParam("username", $username, PDO::PARAM_STR);
+    $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
+    $result = $query->execute();
 
-        // Create the safe query for the SQL statement
-        $query = $connection->prepare("INSERT INTO users(USERNAME,PASSWORD) VALUES (:username,:password_hash)");
-        $query->bindParam("username", $username, PDO::PARAM_STR);
-        $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
-        $result = $query->execute();
- 
-        // Show the results to the user
-        if ($result) {
-            echo '<p class="success">Your registration was successful!</p>';
-        } else {
-            echo '<p class="error">Something went wrong!</p>';
-        }
+    // Show the results to the user
+    if ($result) {
+        echo '<p class="success">Your registration was successful!</p>';
+    } else {
+        echo '<p class="error">Something went wrong!</p>';
     }
 }
  
