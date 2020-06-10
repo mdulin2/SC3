@@ -26,11 +26,16 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted (even some Stegography). 
   
-Total amount of finished challenges: 20 finished challenges: 
+The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 20 finished challenges: 
 - Web: 1
-- Binary: 9
-- Linux: 8
-- Misc: 2
+- Binary/Memory Corruption: 9
+- Reversing: 4
+- Linux: 4
+- Blockchain: 0 
+- Cryptography/Math: 0
+- Blue Team: 0 
+- Misc: 2 (random things that do not have a particular category) 
+
 
 
 ### Web 
@@ -65,6 +70,7 @@ Total amount of finished challenges: 20 finished challenges:
 		- This will overall into the next field, which happens to make them an admin (give them the flag at this point) 
 		- Permission model based upon bits being set (overflow)
 - JWT Issue (Rachael) (?)
+- Deserialization/Command Injection/Something (Ken) (?)
 - **POST_DELETE**: 
 	- Make POST and DELETE requests to an endpoint
 		
@@ -79,7 +85,6 @@ Total amount of finished challenges: 20 finished challenges:
 	- Shellcode/ROP
 - Fun heap corruption (2)
 - Shellcode writing (3)
-- Bad C parsing for a somesort of file format (?)
 - **Exploit mitigations (manually verify)**
 	- NX 
 	- ASLR 
@@ -110,11 +115,12 @@ Total amount of finished challenges: 20 finished challenges:
   - Convert input to an integer, then use this as a case statement to determine auth level
   - With the originally set value of the int (0), this could act as a bad default handling
 - Relative file path issues (symbolic links)(6)
-- **Reversing (Zach)**
-  - 1: First reverse 
-  - 2: xor flag 
-  - 3: Rolling xor flag 
-  - 4: Packer and rolling xor flag
+
+### Reversing (Zach) 
+- **1: First reverse**
+- **2: xor flag**
+- **3: Rolling xor flag**
+- **4: Packer and rolling xor flag**
 
 ### Misc
 - Android connection emulation (10)
@@ -127,11 +133,14 @@ Total amount of finished challenges: 20 finished challenges:
 	- Password reset info
 - Memory Forensics (Gerard?) 
 - Soldering (?) 
-- Blockchain challenges (resuse SI's setup) (10)
-	- Hopefully get Ben Stewart to set this up
 - **Astros** 
 	- Pattern recognition for stealing signs in baseball
 
+## Blockchain (Ben) 
+- Blockchain challenges (resuse SI's setup) (10)
+	- Hopefully get Ben Stewart to set this up
+	- Looking at 4-5 blockchain based challenges for this contest. 
+	
 ### Crypto/Math Math: 
 - Statistics math problems (? -Jeb)
 - Elliptic Curves (Jeb) 
