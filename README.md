@@ -26,8 +26,8 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted (even some Stegography). 
   
-The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 20 finished challenges: 
-- Web: 1
+The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 21 finished challenges: 
+- Web: 2
 - Binary/Memory Corruption: 9
 - Reversing: 4
 - Linux: 4
@@ -49,7 +49,7 @@ The goal is to have something like 30-40 challenges from all different categorie
 - Filter bypass on regex (5)
 - AWS Priv Esc (7)
 - **Al Qaeda Blog**
-	- SQLi 
+	- SQLi to leak credentials 
 - Timing based SQLi? (7) 
 - Host header injection for an email reset link (5)
 - Facial recognition bypass (Sebs react app. Can use a picture of someone!)(ask Sebs) (7)
