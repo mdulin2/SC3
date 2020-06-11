@@ -48,8 +48,8 @@ The goal is to have something like 30-40 challenges from all different categorie
 - Parameter tampering on POST request (use BURP :)) (4)
 - Filter bypass on regex (5)
 - AWS Priv Esc (7)
-- Isis Blog(5) 
-	- SQLi on content to gain 
+- **Al Qaeda Blog**
+	- SQLi 
 - Timing based SQLi? (7) 
 - Host header injection for an email reset link (5)
 - Facial recognition bypass (Sebs react app. Can use a picture of someone!)(ask Sebs) (7)
