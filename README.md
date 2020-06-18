@@ -73,10 +73,10 @@ The goal is to have something like 30-40 challenges from all different categorie
 - Deserialization/Command Injection/Something (Ken) (?)
 - **POST_DELETE**: 
 	- Make POST and DELETE requests to an endpoint
-- SSRF (7): 
-	- Storage of favorite links (pictures and etc.) 
-	- Can also get text from a location for a description of the link 
+- Nailterest (7): 
+	- Storage of favorite links (pictures, text files, etc.)
 	- Use this feature to grab data from a localhost server that is running
+		- Also known as SSRF
 		
 ### Memory Corruption
 - Buffer Overflow series (buf_series)(6): 
