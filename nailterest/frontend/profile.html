@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<title>Nailterest</title>
+	<script>
+	
+	// Make a web request to get all users in the system
+	fetch('http://localhost:5000/get_users?')
+	.then((response) => response.json())
+    	.then(function(data){
+
+		var users = data.users;
+		
+		var node = document.getElementById("my_users");
+		// Iterate over each link
+		for (var index = 0; index < users.length; index++){		
+			console.log(users[index]);	
+			// For each user, add a link and a name that is clickable
+			var link = document.createElement("a");
+			link.href = "http://localhost:8000/profile.html?username=" + users[index];
+			var link_text = document.createTextNode(users[index]); 	
+			link.appendChild(link_text);
+			var main_node = document.createElement("P");
+			main_node.appendChild(link);
+
+			// Add the link and text under a new paragraph within the main div.
+			node.appendChild(main_node);
+		}
+	})
+	.catch(function(error) {
+		console.log('Request failed:', error.message);
+	});
+	
+    </script>
+</head>
+
+<body style="background-color:black; font-family:'Courier New', Courier, monospace; color:white">
+    <center>
+        <h1>
+		Nailterest Users :)
+        </h1>
+	<div id="my_users">
+
+	</div>
+	
+    </center>
+</body>
+</html>

@@ -134,10 +134,16 @@ def get_text(link):
 	response = requests.get(link)	
 	data = response.text
 	return data
-		
+
+def get_users(): 
+	query = """SELECT username FROM users;"""
+	results = c.execute(query)
+	results = results.fetchall()
+	return results
+
+			
 #setup()
-#add_link("A", "https://google.com")
+#add_link("A", "https://github.com/mdulin2/Zyxel_NAS326_Exploit/blob/master/README.md")
 #print(get_link_info("dad"))
 #print(user_for_link("h2FPwZL1waMEupOjflQify1LSF/GJujMA7TY1JRgAd/rTQWgrdx1dXbbigcoX9WtSLKL5VR1UNTzBHr5OSsKadgMOTnzDsvWsVK3+b407TZ0XKGId1gfTHfKI3OoAa39lpgCtA=="))
-
-#print(get_text("http://localhost:6000/flag.txt")) 
+print(get_users())

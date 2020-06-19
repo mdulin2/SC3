@@ -2,6 +2,7 @@
 In order to run this, install the following: 
 - python3 
 - flask 
+- flask_cors 
 
 To run: 
 - `python3 main.py`
@@ -9,18 +10,22 @@ To run:
 
 from flask import Flask
 from flask import request
+from flask_cors import CORS
+from flask import jsonify
 import functionality 
 
 
 app = Flask(__name__)
+CORS(app) # Enable Access-Control-Allow-Origin
 
-
+# Gets all links for a given username
 @app.route("/get_link", methods=['GET'])
 def get_link():
 	username = request.args.get('username')
 	result = functionality.get_link_info(username)
 	return {'link' : result}
 
+# Create a user. Returns a magic_link to be used for editing
 @app.route("/create_user", methods=['POST'])
 def create_user(): 
 	username = request.json['username']
@@ -29,6 +34,7 @@ def create_user():
 		return 'False'
 	return result
 
+# Get all link content associated with a user
 @app.route("/add_link", methods=['POST'])
 def add_link(): 
 
@@ -43,11 +49,26 @@ def add_link():
 		
 	return 'True'
 
+# Given a link that stores text, send this text back to the user
 @app.route("/get_text", methods=['GET'])
 def get_text():
 	link = request.args.get('link')
 	text = functionality.get_text(link)	
 	return text
+
+# Get all users currently in the system
+@app.route("/get_users", methods=['GET'])
+def get_users():
+
+	# Get the users and reorganize them
+	users = functionality.get_users()
+	users_lst = []
+	for user in users: 
+		user = user[0]
+		users_lst.append(user)
+	
+	# Send back a JSON list of users
+	return jsonify(users=users_lst)
 
 if __name__ == "__main__":
     app.run(debug=True)

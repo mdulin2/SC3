@@ -19,9 +19,11 @@
 		- Get links for user 
 		- Get all users 
 		- Process link
-	- frontend: 
+	- frontend: Straight HTML and Javascript for a static site
 		- Home (shows all profiles)
 		- Add link to user 
 		- Create user page
 		- My Profile (displays all links via pictures or text) 
+		- Origin?
+
 
