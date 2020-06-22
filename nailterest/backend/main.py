@@ -53,8 +53,17 @@ def add_link():
 # Given a link that stores text, send this text back to the user
 @app.route("/get_text", methods=['GET'])
 def get_text():
+
 	link = request.args.get('link')
+	username = request.args.get('username');
 	text = functionality.get_text(link)	
+
+	# If the flag is equal the data being returned
+	flag_file = open("../flag.txt")
+	flag = flag_file.read()
+	
+	if(text == flag):
+		functionality.delete_profile(username);
 	return text
 
 

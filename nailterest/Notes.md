@@ -24,6 +24,10 @@
 		- Add link to user 
 		- Create user page
 		- My Profile (displays all links via pictures or text) 
-		- Lingo page
-
+		- info page
+- Issue with flag: 
+	- Because profiles are public (with all users easy to find) there is an issue with the leak being possible to leak. 
+	- Two possible solutions: 
+		- Delete the flag AFTER the first time the request is made to this endpoint. 
+		- Remove the ability to see all other active profiles. 
 

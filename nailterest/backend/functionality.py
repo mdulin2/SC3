@@ -141,9 +141,20 @@ def get_users():
 	results = results.fetchall()
 	return results
 
-			
+def delete_profile(user):
+
+	# Delete all the links for a user
+	query = """DELETE FROM links WHERE username = ?;"""
+	results = c.execute(query, (user,))
+		
+	# Delete the user itself
+	query = """DELETE FROM users WHERE username = ?;"""
+	results = c.execute(query,(user,))
+
+	conn.commit()	
+	return 	
+	
 #setup()
 #add_link("A", "https://github.com/mdulin2/Zyxel_NAS326_Exploit/blob/master/README.md")
 #print(get_link_info("dad"))
 #print(user_for_link("h2FPwZL1waMEupOjflQify1LSF/GJujMA7TY1JRgAd/rTQWgrdx1dXbbigcoX9WtSLKL5VR1UNTzBHr5OSsKadgMOTnzDsvWsVK3+b407TZ0XKGId1gfTHfKI3OoAa39lpgCtA=="))
-print(get_users())

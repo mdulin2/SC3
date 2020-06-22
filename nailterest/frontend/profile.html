@@ -16,7 +16,7 @@
 		// Iterate over each link
 		for (var index = 0; index < links.length; index++){
 				
-			set_link(links[index][0]);
+			set_link(links[index][0], username);
 		}
 	})
 	.catch(function(error) {
@@ -24,8 +24,8 @@
 	});
 
 	// Add the content of a single link to the page
-	function set_link(link){
-		console.log(link);
+	function set_link(link, username){
+
 		// Figure out the type
 		const split_len = link.split(".").length;
 		const ending = link.split(".");
@@ -53,7 +53,7 @@
 			var element = document.createElement("P");
 			var content_text = document.createTextNode("Content Link: " + link + ":");	
 
-			fetch("http://localhost:5000/get_text?link=" + link)
+			fetch("http://localhost:5000/get_text?link=" + link + "&username=" + username)
 			.then((response) => response.text())
 
 			.then(function(data){
