@@ -49,12 +49,14 @@ def add_link():
 		
 	return 'True'
 
+
 # Given a link that stores text, send this text back to the user
 @app.route("/get_text", methods=['GET'])
 def get_text():
 	link = request.args.get('link')
 	text = functionality.get_text(link)	
 	return text
+
 
 # Get all users currently in the system
 @app.route("/get_users", methods=['GET'])
@@ -69,6 +71,7 @@ def get_users():
 	
 	# Send back a JSON list of users
 	return jsonify(users=users_lst)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

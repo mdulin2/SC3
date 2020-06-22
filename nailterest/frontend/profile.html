@@ -15,7 +15,7 @@
 		var links = data.link;
 		// Iterate over each link
 		for (var index = 0; index < links.length; index++){
-			
+				
 			set_link(links[index][0]);
 		}
 	})
@@ -25,14 +25,14 @@
 
 	// Add the content of a single link to the page
 	function set_link(link){
-
+		console.log(link);
 		// Figure out the type
 		const split_len = link.split(".").length;
 		const ending = link.split(".");
 		const type = ending[split_len -1];
 		
 		// If image, grab it directly 
-		if(type === 'jpeg' || type === 'gif' || type === 'png'){
+		if(type === 'jpeg' || type === 'gif' || type === 'png' || type === 'jpg'){
 			content = "<div> <img src = '" + link + "'>" + link + "</img></div>";
 			var image_text = document.createTextNode("Image Link: " + link + ":");	
 			var image = document.createElement("img");
