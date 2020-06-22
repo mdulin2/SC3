@@ -5,7 +5,7 @@
 	<script>
 	
 	// Make a web request to get all users in the system
-	fetch('http://localhost:5000/get_users?')
+	fetch('http://localhost:5000/get_users')
 	.then((response) => response.json())
     	.then(function(data){
 
@@ -34,8 +34,27 @@
     </script>
 </head>
 
-<body style="background-color:black; font-family:'Courier New', Courier, monospace; color:white">
-    <center>
+<body style="background-color: #add8e6; font-family:'Courier New', Courier, monospace; color:green">
+
+	<div id = "header" style = "display : flex; justify-content : space-evenly">
+		<a href="/index.html">
+		Home
+		</a>
+
+		<a href="/create_user.html">
+		Create
+		</a>
+
+		<a href="/add.html">
+		Add
+		</a>
+
+                <a href="/info.html">
+		Info
+                </a>
+	</div>
+
+	<center>
         <h1>
 		Nailterest Users :)
         </h1>
