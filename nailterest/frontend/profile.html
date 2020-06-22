@@ -3,9 +3,11 @@
 <head>
 	<title>Nailterest</title>
 	<script>
+
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const username = urlParams.get('username');
+
 	fetch('http://localhost:5000/get_link?username=' + username)
 	.then((response) => response.json())
     	.then(function(data){
@@ -29,7 +31,6 @@
 		const ending = link.split(".");
 		const type = ending[split_len -1];
 		
-		console.log(type);	
 		// If image, grab it directly 
 		if(type === 'jpeg' || type === 'gif' || type === 'png'){
 			content = "<div> <img src = '" + link + "'>" + link + "</img></div>";
@@ -93,8 +94,8 @@
 
 <body style="background-color:black; font-family:'Courier New', Courier, monospace; color:white">
     <center>
-        <h1>
-		Nailterest Home
+        <h1 id="main">
+		Nailterest Profile
         </h1>
 	<div id="my_links">
 
