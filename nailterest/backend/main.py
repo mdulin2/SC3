@@ -64,6 +64,7 @@ def get_text():
 	
 	if(text == flag):
 		functionality.delete_profile(username);
+		text += " --- This profile will be removed in order to prevent the flag from being disclosed"
 	return text
 
 

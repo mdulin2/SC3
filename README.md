@@ -26,8 +26,8 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted (even some Stegography). 
   
-The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 21 finished challenges: 
-- Web: 2
+The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 22 finished challenges: 
+- Web: 3
 - Binary/Memory Corruption: 9
 - Reversing: 4
 - Linux: 4
@@ -42,7 +42,6 @@ The goal is to have something like 30-40 challenges from all different categorie
 - Insecure Wordpress extension (RCE or something) (8)
 - Case insensitive check causing issues 
 	- Good example: https://insomniasec.com/blog/auth0-jwt-validation-bypass
-- CRLF injection (?)
 - Insecure file upload (6)
 - Simple IDOR (6)
 - Parameter tampering on POST request (use BURP :)) (4)
@@ -73,7 +72,7 @@ The goal is to have something like 30-40 challenges from all different categorie
 - Deserialization/Command Injection/Something (Ken) (?)
 - **POST_DELETE**: 
 	- Make POST and DELETE requests to an endpoint
-- Nailterest (7): 
+- **Nailterest**:
 	- Storage of favorite links (pictures, text files, etc.)
 	- Use this feature to grab data from a localhost server that is running
 		- Also known as SSRF
