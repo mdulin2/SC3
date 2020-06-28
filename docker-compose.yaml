@@ -1,0 +1,11 @@
+  version: '2.1'
+
+  services:
+    amazon:
+      container_name: amazon
+      build: ./amazon
+      ports:
+        - "10001:10001"
+      volumes:
+        - ./amazon:/amazon-challenge
+
