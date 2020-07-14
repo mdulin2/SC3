@@ -26,13 +26,13 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted (even some Stegography). 
   
-The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 22 finished challenges: 
+The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 23 finished challenges: 
 - Web: 3
 - Binary/Memory Corruption: 9
 - Reversing: 4
 - Linux: 4
 - Blockchain: 0 
-- Cryptography/Math: 0
+- Cryptography/Math: 1
 - Blue Team: 0 
 - Misc: 2 (random things that do not have a particular category) 
 
@@ -147,6 +147,8 @@ The goal is to have something like 30-40 challenges from all different categorie
 ### Crypto/Math Math: 
 - Statistics math problems (? -Jeb)
 - Elliptic Curves (Jeb) 
+- **Passphrases**: 
+	- Map passphrase to key without decoding code
 - Combinatorics
 - Digital Signatures or HMACs (manually verify) (3)
 - Cesar Cipher 
