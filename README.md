@@ -74,8 +74,8 @@ The goal is to have something like 30-40 challenges from all different categorie
 	- Make POST and DELETE requests to an endpoint
 - **Nailterest**:
 	- Storage of favorite links (pictures, text files, etc.)
-	- Use this feature to grab data from a localhost server that is running
-		- Also known as SSRF
+	- Use this feature to grab data from a localhost server that is running. This is also known as SSRF
+- Regex Bypass Quiz 
 		
 ### Memory Corruption
 - Buffer Overflow series (buf_series)(6): 
@@ -130,12 +130,16 @@ The goal is to have something like 30-40 challenges from all different categorie
 - **Othello**:
 	- https://github.com/mdulin2/Othello
 	- Just a previous school project from Max Dulin. 
-	- It has been thrown in here for a fun little challenge
+	- It has been thrown in here for a fun little challenge to learn a fun board game
 - OSINT (5):
 	- Private key for server 
 	- Password reset info
 - Memory Forensics (Gerard?) 
 - Soldering (?) 
+- Lock Picking
+- OSINT: 
+	- Account reset information 
+	- Trash digging 
 - **Astros** 
 	- Pattern recognition for stealing signs in baseball
 
