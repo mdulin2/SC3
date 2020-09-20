@@ -26,7 +26,7 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted (even some Stegography). 
   
-The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 23 finished challenges: 
+The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 25 finished challenges: 
 - Web: 3
 - Binary/Memory Corruption: 9
 - Reversing: 4
@@ -51,7 +51,7 @@ The goal is to have something like 30-40 challenges from all different categorie
 	- SQLi to leak credentials 
 - Timing based SQLi? (7) 
 - Host header injection for an email reset link (5)
-- Facial recognition bypass (Sebs react app. Can use a picture of someone!)(ask Sebs) (7)
+- Facial recognition bypass (Sebs react app. Can use a picture of someone for facial recognition!)(ask Sebs) (7)
 	- https://github.com/sebvargas/MLFacialRecognition/blob/master/InstallationDocs.md
 - Template injection (5)
 - Source code analysis (manual verification) (6):
@@ -74,8 +74,10 @@ The goal is to have something like 30-40 challenges from all different categorie
 	- Make POST and DELETE requests to an endpoint
 - **Nailterest**:
 	- Storage of favorite links (pictures, text files, etc.)
-	- Use this feature to grab data from a localhost server that is running
-		- Also known as SSRF
+	- Use this feature to grab data from a localhost server that is running. This is also known as SSRF
+- Regex Bypass Quiz 
+- Client Side Trust of Bar Codes (9): 
+	- Bar codes hold data. But, this data is known and cannot be trusted by itself. 
 		
 ### Memory Corruption
 - Buffer Overflow series (buf_series)(6): 
@@ -97,8 +99,6 @@ The goal is to have something like 30-40 challenges from all different categorie
 - Memory corruption via driving game with ASCII graphics  (9) 
 - **Race Track** 
 	- (Heap Memory Corruption)
-- **Patch**
-	- Bypassing restrictions via altering the binary itself.
 ### Linux
 - **signals**: 
 	- Sending a signal to continue a flag 
@@ -126,18 +126,23 @@ The goal is to have something like 30-40 challenges from all different categorie
 - **2: xor flag**
 - **3: Rolling xor flag**
 - **4: Packer and rolling xor flag**
-
+- **Patch**
+	- Bypassing restrictions via altering the binary itself.
 ### Misc
 - Android connection emulation (10)
 - **Othello**:
 	- https://github.com/mdulin2/Othello
 	- Just a previous school project from Max Dulin. 
-	- It has been thrown in here for a fun little challenge
+	- It has been thrown in here for a fun little challenge to learn a fun board game
 - OSINT (5):
 	- Private key for server 
 	- Password reset info
 - Memory Forensics (Gerard?) 
 - Soldering (?) 
+- Lock Picking
+- OSINT: 
+	- Account reset information 
+	- Trash digging 
 - **Astros** 
 	- Pattern recognition for stealing signs in baseball
 
