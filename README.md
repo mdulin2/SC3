@@ -30,7 +30,7 @@ The goal is to have something like 30-40 challenges from all different categorie
 - Web: 3
 - Binary/Memory Corruption: 9
 - Reversing: 4
-- Linux: 4
+- Linux: 5
 - Blockchain: 0 
 - Cryptography/Math: 1
 - Blue Team: 0 
@@ -118,6 +118,8 @@ The goal is to have something like 30-40 challenges from all different categorie
   - Convert input to an integer, then use this as a case statement to determine auth level
   - With the originally set value of the int (0), this could act as a bad default handling
 - Relative file path issues (symbolic links)(6)
+- **Finally Switch**: 
+	- Python command injection into ``input``. 
 
 ### Reversing (Zach) 
 - **1: First reverse**
