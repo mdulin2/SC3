@@ -26,8 +26,8 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted (even some Stegography). 
   
-The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 26 finished challenges: 
-- Web: 3
+The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 27 finished challenges: 
+- Web: 4 (or 6 depending on how you look at it) 
 - Binary/Memory Corruption: 8
 - Reversing: 4
 - Linux: 7
@@ -49,12 +49,10 @@ The goal is to have something like 30-40 challenges from all different categorie
 - AWS Priv Esc (7)
 - **Al Qaeda Blog**
 	- SQLi to leak credentials 
-- Timing based SQLi? (7) 
 - Host header injection for an email reset link (5)
-- Facial recognition bypass (Sebs react app. Can use a picture of someone for facial recognition!)(ask Sebs) (7)
+- Facial recognition bypass (Sebs react app. Can use a picture of someone for facial recognition!)(ask Sebs) (5)
 	- https://github.com/sebvargas/MLFacialRecognition/blob/master/InstallationDocs.md
-- Template injection (5)
-- Source code analysis (manual verification) (6):
+- Source code analysis (manual verification) (6)
 - Typing game (6) (Andrew): 
 	- Get a speed of xyz by scripting the entire thing.
 - Tenent Management/pop quiz
@@ -68,8 +66,11 @@ The goal is to have something like 30-40 challenges from all different categorie
 		- When adding a new authorization (by adding a certain value), make a call that will do this not once but twice.
 		- This will overall into the next field, which happens to make them an admin (give them the flag at this point) 
 		- Permission model based upon bits being set (overflow)
-- JWT Issue (Rachael) (?)
-- Deserialization/Command Injection/Something (Ken) (?)
+- **JWTs**: 
+	- Login (2)
+	- Decode JWT (4)
+	- Crack and resign (8) 
+- Deserialization/Command Injection/Something (Ken)
 - **POST_DELETE**: 
 	- Make POST and DELETE requests to an endpoint
 - **Nailterest**:
@@ -78,7 +79,8 @@ The goal is to have something like 30-40 challenges from all different categorie
 - Regex Bypass Quiz 
 - Client Side Trust of Bar Codes (9): 
 	- Bar codes hold data. But, this data is known and cannot be trusted by itself. 
-		
+
+
 ### Memory Corruption
 - Buffer Overflow series (buf_series)(6): 
 	- **Firsty**
@@ -151,7 +153,7 @@ The goal is to have something like 30-40 challenges from all different categorie
 ## Blockchain (Ben) 
 - Blockchain challenges (resuse SI's setup) (10)
 	- Hopefully get Ben Stewart to set this up
-	- Looking at 4-5 blockchain based challenges for this contest. 
+	- Looking at 3-4 blockchain based challenges for this contest. 
 	
 ### Crypto/Math Math: 
 - Statistics math problems (? -Jeb)
