@@ -26,7 +26,7 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted (even some Stegography). 
   
-The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 27 finished challenges: 
+The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 28 finished challenges: 
 - Web: 4 (or 6 depending on how you look at it) 
 - Binary/Memory Corruption: 8
 - Reversing: 4
@@ -49,12 +49,12 @@ The goal is to have something like 30-40 challenges from all different categorie
 	- Login (2)
 	- Decode JWT (4)
 	- Crack and resign (8) 
+- **Parameter tampering on POST request** (5): 
+	- Korean food challenge but set the *is_admin* flag to true to become an administrator.  
 - Lottery (Vanessa): 
 	- Cracking the lottery via an insecure random number generator. 
 - Facial recognition bypass (Sebs react app. Can use a picture of someone for facial recognition!)(ask Sebs) (5)
 	- https://github.com/sebvargas/MLFacialRecognition/blob/master/InstallationDocs.md
-- Parameter tampering on POST request (use BURP :)) (4): 
-	- Korean food from previous years but vulnerability is an extra parameter on the registration feature? 
 - Web Scrapping Challenge(6) (Andrew): 
 	- Get a speed of xyz by scripting the entire thing.
 - Simple IDOR (6)
