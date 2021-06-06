@@ -37,24 +37,33 @@ The goal is to have something like 30-40 challenges from all different categorie
 - Misc: 2 (random things that do not have a particular category) 
 
 
-
 ### Web 
-- Insecure Wordpress extension (RCE or something) (8)
-- Case insensitive check causing issues 
-	- Good example: https://insomniasec.com/blog/auth0-jwt-validation-bypass
-- Insecure file upload (6)
-- Simple IDOR (6)
-- Parameter tampering on POST request (use BURP :)) (4)
-- Filter bypass on regex (5)
-- AWS Priv Esc (7)
 - **Al Qaeda Blog**
 	- SQLi to leak credentials 
-- Host header injection for an email reset link (5)
+- **POST_DELETE**: 
+	- Make POST and DELETE requests to an endpoint
+- **Nailterest**:
+	- Storage of favorite links (pictures, text files, etc.)
+	- Use this feature to grab data from a localhost server that is running. This is also known as SSRF.
+- **JWTs**: 
+	- Login (2)
+	- Decode JWT (4)
+	- Crack and resign (8) 
+- Lottery (Vanessa): 
+	- Cracking the lottery via an insecure random number generator. 
 - Facial recognition bypass (Sebs react app. Can use a picture of someone for facial recognition!)(ask Sebs) (5)
 	- https://github.com/sebvargas/MLFacialRecognition/blob/master/InstallationDocs.md
-- Source code analysis (manual verification) (6)
-- Typing game (6) (Andrew): 
+- Parameter tampering on POST request (use BURP :)) (4): 
+	- Korean food from previous years but vulnerability is an extra parameter on the registration feature? 
+- Web Scrapping Challenge(6) (Andrew): 
 	- Get a speed of xyz by scripting the entire thing.
+- Simple IDOR (6)
+- Regex Bypass Quiz (5)
+- Source code analysis (manual verification) (6)
+- Host header injection for an email reset link (5)
+- Insecure file upload (6)
+- Client Side Trust of Bar Codes (9): 
+	- Bar codes hold data. But, this data is known and cannot be trusted by itself. 
 - Tenent Management/pop quiz
 	- First flag (IDOR) 
 		- Go from a resident to a building manager/teacher
@@ -66,20 +75,6 @@ The goal is to have something like 30-40 challenges from all different categorie
 		- When adding a new authorization (by adding a certain value), make a call that will do this not once but twice.
 		- This will overall into the next field, which happens to make them an admin (give them the flag at this point) 
 		- Permission model based upon bits being set (overflow)
-- **JWTs**: 
-	- Login (2)
-	- Decode JWT (4)
-	- Crack and resign (8) 
-- Deserialization/Command Injection/Something (Ken)
-- **POST_DELETE**: 
-	- Make POST and DELETE requests to an endpoint
-- **Nailterest**:
-	- Storage of favorite links (pictures, text files, etc.)
-	- Use this feature to grab data from a localhost server that is running. This is also known as SSRF
-- Regex Bypass Quiz 
-- Client Side Trust of Bar Codes (9): 
-	- Bar codes hold data. But, this data is known and cannot be trusted by itself. 
-
 
 ### Memory Corruption
 - Buffer Overflow series (buf_series)(6): 
@@ -90,32 +85,26 @@ The goal is to have something like 30-40 challenges from all different categorie
 	- **auth** 
 		- Redirect execution of the binary to a new function
 	- Shellcode/ROP
-- Fun heap corruption (2)
-- Shellcode writing (3)
 - **Exploit mitigations (manually verify)**
 	- NX 
 	- ASLR 
 	- Stack Canaries
 - **HelloWorldArg** 
 	- Format string vuln 
-- Memory corruption via driving game with ASCII graphics  (9) 
-
+	
 ### Linux
 - **signals**: 
 	- Sending a signal to continue a flag 
 - Basic Linux Commands (introduction to Linux) 
 	- ssh 
 	- process names 
-	- 2 others? 
-- Writing assembly to open a file (4) 
-- File descriptor bug
-- Bad usage of crypto (hashes when random should be used?) 
+	- Moving directories
 - **amazon** 
 	- OTP bypass by flooding OTP values
 - **error_to_code** 
 	- Error message into code exec
 - **auth_handler** 
-  - Try catch block with an initally set value
+  - Try catch block with an initally set value.
   - Convert input to an integer, then use this as a case statement to determine auth level
   - With the originally set value of the int (0), this could act as a bad default handling
 - Relative file path issues (symbolic links)(6)
@@ -132,23 +121,20 @@ The goal is to have something like 30-40 challenges from all different categorie
 - **4: Packer and rolling xor flag**
 - **Patch**
 	- Bypassing restrictions via altering the binary itself.
+	
 ### Misc
-- Android connection emulation (10)
 - **Othello**:
 	- https://github.com/mdulin2/Othello
 	- Just a previous school project from Max Dulin. 
 	- It has been thrown in here for a fun little challenge to learn a fun board game
+- **Astros** 
+	- Pattern recognition for stealing signs in baseball
 - OSINT (5):
 	- Private key for server 
 	- Password reset info
 - Memory Forensics (Gerard?) 
 - Soldering (?) 
 - Lock Picking
-- OSINT: 
-	- Account reset information 
-	- Trash digging 
-- **Astros** 
-	- Pattern recognition for stealing signs in baseball
 
 ## Blockchain (Ben) 
 - Blockchain challenges (resuse SI's setup) (10)
