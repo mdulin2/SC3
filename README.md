@@ -55,6 +55,9 @@ The goal is to have something like 30-40 challenges from all different categorie
 	- Cracking the lottery via an insecure random number generator. 
 - Facial recognition bypass (Sebs react app. Can use a picture of someone for facial recognition!)(ask Sebs) (5)
 	- https://github.com/sebvargas/MLFacialRecognition/blob/master/InstallationDocs.md
+- XSS Challenges from Ken:
+	- There are **FIVE** of them with increasing difficulty in bypassing the parser
+	- https://github.com/kenprice/lebean/tree/main/lebean
 - Web Scrapping Challenge(6) (Andrew): 
 	- Get a speed of xyz by scripting the entire thing.
 - Simple IDOR (6)
