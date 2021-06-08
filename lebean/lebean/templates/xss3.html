@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Bean ~ Challenge 3</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet"> 
+    <style type="text/css">
+      body {
+        background: url('{{url_for('static', filename='coffee.jpg')}}') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        line-height: 1.6;
+        font-size: 18px;
+        color: #cccccc;
+        padding: 0 10px
+      }
+
+      a:link, a:visited {
+        color: #9999ff;
+        text-decoration: none;
+        target-new: none;
+      }
+
+      a:hover {
+        color: #ff9999;
+        text-decoration: underline;
+        target-new: none;
+      }
+
+      h1 {
+        font-family: 'Allura', cursive;
+        position: absolute;
+        top: -280px;
+        left: -250px;
+        font-size: 120px;
+      }
+
+      h1, h2 {
+        text-shadow: 2px 2px #000000;
+      }
+
+      h1, h2, h3 {
+        line-height: 1.2
+      }
+
+     input {
+        width: 250px;
+        border-radius: 5px;
+        background: #fff;
+        border: 1px solid #ccc;
+        outline:none;
+        padding: 5px;
+      }
+
+      button {
+        width: 100px;
+        border-radius: 5px;
+        background: #fff;
+        border: 1px solid #ccc;
+        outline:none;
+        padding: 5px;
+      }
+
+      input:focus, button:focus {
+        border:1px solid #56b4ef;
+        box-shadow: 0px 0px 3px 1px #c8def0;
+      } 
+
+      .centered {
+        background-color: #000000;
+        border-radius: 10px;
+        opacity: 70%;
+        width: 800px;
+        height: 500px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -250px;
+        margin-left: -400px;
+      }
+
+      .content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -250px;
+      }
+    </style>
+</head>
+<body>
+  <div class="centered"></div>
+  <div class="content">
+    <h1>Le Bean</h1>
+    <h2>Challenge 3</h2>
+    {% if flag is none %}
+    <p>
+      Ok, I'm banning even more. No more double quotes!
+    </p>
+    <p>
+      Get me to execute <code>alert(1)</code>, please.
+    </p>
+    {% else %}
+    <p>
+      You are a sneaky friend, friend. <a href="/xss4">Next</a>
+    </p>
+    <p>
+      flag&#123;{{flag}}&#125;
+    </p>
+    {% endif %}
+    <form method="POST">
+      <input name="input" value="{{userInput}}">
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      document.write('Your input: {{userInput}}');
+    </script>
+  </div>
+</body>
+</html>
