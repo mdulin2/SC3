@@ -26,8 +26,8 @@ Additionally, the bolded challenges have already been created.
   
 If somebody has ANY other ideas, then please go crazy and create the challenge! These are just thoughts that I (Max) had and put down before I forgot. All types of challenges will be accepted (even some Stegography). 
   
-The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished challenges: 28 finished challenges: 
-- Web: 4 (or 6 depending on how you look at it) 
+The goal is to have something like 30-40 challenges from all different categories. Currently, the total amount of finished flags is 35.
+- Web: 13
 - Binary/Memory Corruption: 8
 - Reversing: 4
 - Linux: 7
@@ -39,7 +39,8 @@ The goal is to have something like 30-40 challenges from all different categorie
 
 ### Web 
 - **Al Qaeda Blog**
-	- SQLi to leak credentials 
+	- SQLi to get a flag from the database (6) 
+	- Leaking credentials to get one of the flags (7) 
 - **POST_DELETE**: 
 	- Make POST and DELETE requests to an endpoint
 - **Nailterest**:
@@ -51,13 +52,17 @@ The goal is to have something like 30-40 challenges from all different categorie
 	- Crack and resign (8) 
 - **Parameter tampering on POST request** (5): 
 	- Korean food challenge but set the *is_admin* flag to true to become an administrator.  
+- **Lebean**:
+	- There are 5 challenges in here!
+	- Simple XSS (4) 
+	- Double quote escape (5) 
+	- Single quote escape (5) 
+	- Template string escape (7) 
+	- Javascript URI link (7) 
 - Lottery (Vanessa): 
 	- Cracking the lottery via an insecure random number generator. 
 - Facial recognition bypass (Sebs react app. Can use a picture of someone for facial recognition!)(ask Sebs) (5)
 	- https://github.com/sebvargas/MLFacialRecognition/blob/master/InstallationDocs.md
-- XSS Challenges from Ken:
-	- There are **FIVE** of them with increasing difficulty in bypassing the parser
-	- https://github.com/kenprice/lebean/tree/main/lebean
 - Web Scrapping Challenge(6) (Andrew): 
 	- Get a speed of xyz by scripting the entire thing.
 - Simple IDOR (6)
