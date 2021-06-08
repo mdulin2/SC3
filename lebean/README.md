@@ -31,3 +31,6 @@ docker run -p 5000:5000 lebean
 
 Have fun, friends!
 
+## Hints
+- XSS: https://owasp.org/www-community/attacks/xss/
+- Look at the HTML in the page. This is the best way to find the XSS. 
