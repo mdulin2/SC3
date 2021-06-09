@@ -3,7 +3,7 @@
 #include <string.h>
 
 /*
-Compile: gcc hello_world.c -m32 -o hello_world
+Compile: gcc hello_world.c -o hello_world -ggdb -m32 -O0
 */
 
 // Get reads the flag... ignore this!
@@ -12,16 +12,17 @@ char* get_flag(){
 
 	FILE *fp = fopen("flag.txt", "r");
 	size_t len = 0;
-	
-	if(fp == NULL)
+
+	if(fp == NULL){
+		puts("Cannot access flag... exiting!\n");
 		exit(1);
+	}
 	
 	getline(&string,&len,fp);
 
 	return string; 
 
 }
-
 
 // Take my string, into a new buffer and print it!
 int main(int argc, char* argv[]){
@@ -30,29 +31,21 @@ int main(int argc, char* argv[]){
 		puts("./hello_world <echoed_string>");
 		return 0;
 	}
+
 	char* flag = get_flag();	
+
 	char flag_buf[40]; // Tmp buffer for the flag
-	char my_buf[40];   // Tmp buffer for the user input
-	
+
 	int my_len = strlen(argv[1]);
-	if(my_len > 39){
-		printf("Maximum lenth string is 39");
-		return 0;
-	}
 
 	// Copy flag into local buffer
 	strncpy(flag_buf, flag, 40);
-
-	// Clear the buffer	
-	memset(my_buf, 0x0, 40);
-
-	// Copy arguement into buffer	
-	strncpy(my_buf,argv[1], my_len);		
-
-	// Print my string from the command line!	
-	printf(my_buf);	
-	printf("\n");
 	
+	// Print my string from the command line!	
+	printf(argv[1]);
+	printf("\n");
+
+	memset(flag_buf, 0, 40);	
 	return 0;
 
 }
