@@ -1,5 +1,5 @@
 /*
-gcc -mpreferred-stack-boundary=2 -m32 -ggdb -g -fno-stack-protector auth.c -o auth
+gcc -mpreferred-stack-boundary=2 -m32 -ggdb -g -fno-stack-protector auth.c -o auth -no-pie
 
 Ensure that ASLR is turned off for this challenge.
 */
@@ -9,7 +9,7 @@ Ensure that ASLR is turned off for this challenge.
 #include <string.h>
 
 int validate_serial(){
-    printf("Enter a serial number: \n");
+    printf("Enter a serial to login: \n");
     char serial[32];
     fscanf(stdin, "%s", serial);
     return 0;
@@ -19,7 +19,7 @@ int validate_serial(){
 int do_valid_stuff(){
     FILE *fp; 
     int c; 
-    fp = fopen("flag3.txt","r");
+    fp = fopen("flag.txt","r");
 
     // Read the output of the flag file    
     if(fp){

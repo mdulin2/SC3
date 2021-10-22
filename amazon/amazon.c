@@ -146,7 +146,8 @@ char* setup(){
 }
 
 int main(){
-	
+	setvbuf(stdout, NULL, _IONBF, 0);
+	setvbuf(stdin, NULL, _IONBF, 0);	
 	char* directory = setup();	
 	
 	// Ensure a proper login
@@ -172,7 +173,16 @@ int main(){
 			printf("Enter an OTP token: ");
 			scanf("%d", &option);
 			result = check_otp_attempt(directory,option);
-			if(result == 1){
+			if(result == 1){ // Print the flag from a file
+				FILE *fp; 
+				int c; 
+				fp = fopen("flag.txt","r");
+				if(fp){
+					while((c = getc(fp)) != EOF)
+						putchar(c); 
+					fclose(fp);
+					return 0; 
+			}
 				puts("Flag....");
 				// print flag :)
 			return 0;

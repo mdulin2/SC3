@@ -3,7 +3,7 @@
 
 /*
 Compile: 
-`gcc -m32 dead.c -fno-stack-protector -o dead`
+`gcc -m32 dead.c -fno-stack-protector -o dead -no-pie` 
 
 socat TCP-LISTEN:2323,reuseaddr,fork EXEC:"./dead"
 */
@@ -22,10 +22,18 @@ int main(){
 	printf("Please insert a cool string: ");
 
 	// Put data into my cool string 
-	fgets(my_string,17,stdin);
+	fgets(my_string,32,stdin);
 
 	if(x == 0xdeadbeef){
-		puts("Flag!");
+		FILE *fp; 
+		int c; 
+		fp = fopen("flag.txt","r");
+		if(fp){
+			while((c = getc(fp)) != EOF)
+				putchar(c); 
+			fclose(fp);
+			return 0; 
+		}
 	}
 	else{
 		puts("Lit :fire");

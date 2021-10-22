@@ -57,7 +57,9 @@ def initialize_users():
 
 # Get the flag :) 
 def get_flag(): 
-	print("Flag!") 	
+	with open('flag.txt') as f:
+		contents = f.read()
+		print(contents) 	
 
 def main(): 
 	user_lst = initialize_users()	

