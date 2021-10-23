@@ -21,4 +21,8 @@
 - A label is used for jumps in assembly. However, these GOTO's are also supported in Perl land! 
 - However, there is still the ``: No such file or directory`` at the end of this. In order to cancel that out, add a ``#``, which is a Perl comment, to comment out this part of the code. 
 - We now that we can put this into Perl (because it supports labels.) How do we execute the code? 
-
+Two answers: 
+- One that needs the large amount of escaping... this is for the SECOND whitelist
+   ./error_code '"system(\"ping google.com\"); #"' perl
+- One that does not need any escaping, but has a harder whitelist (the second) 
+  ./error_code "system 'cat flag' #" perl

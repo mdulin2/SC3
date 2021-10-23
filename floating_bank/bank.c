@@ -106,7 +106,14 @@ int main(){
 
         // Check to see if a bunch of money was stolen
         if(amount_stolen > 1000){
-            puts("flg{Do somebody crazy!}"); 
+		FILE *fp; 
+		int c; 
+		fp = fopen("flag.txt","r");
+		if(fp){
+			while((c = getc(fp)) != EOF)
+				putchar(c); 
+			fclose(fp);
+		}
             puts("We've robbed a bank! We better run!"); 
             return 0;
         }

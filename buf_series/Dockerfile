@@ -1,6 +1,7 @@
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
-RUN apt-get update -y && apt install openssh-server g++-multilib vim gdb -y gcc python
+# Add GDB, Python, SSH, gcc and curl
+RUN apt-get update -y && DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt install openssh-server g++-multilib vim gdb gcc python git curl bsdmainutils nano tmux -y
 
 # Setup the users
 ## Setup the 'firsty' user 
@@ -50,6 +51,8 @@ RUN chown root:auth /home/auth/flag.txt
 RUN chmod 4755  /home/auth/auth
 RUN chmod 400 /home/auth/flag.txt
 RUN chmod 744 /home/auth/auth.c
+
+RUN git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh
 
 # SSH server startup. When launching this, specify which port that the SSH (locally port 22) will be bounded to
 RUN mkdir /var/run/sshd

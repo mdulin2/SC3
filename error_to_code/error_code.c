@@ -2,16 +2,11 @@
 #include <stdlib.h> 
 #include <string.h>
 #include <strings.h>
+#include <linux/limits.h>
 
 /*
 Compile: 
 - gcc error_code.c -o error_code
-Two answers: 
-- One that needs the large amount of escaping...
-   ./error_code '"system(\"ping google.com\"); #"' perl
-- One that does not need any escaping, but has a harder whitelist. 
-  ./error_code "system 'cat flag' #" perl
-
 */
 
 // In particular, disallow semicolons, backticks, single quotes, dollar signs and other shell characters. 
@@ -41,13 +36,39 @@ int is_valid_chars(char* str){
 
 } 
 
+int validate_file(char* filename){
+	char actualpath [PATH_MAX+1];
+	char* ptr; 
+
+	// Get the absolute path
+	ptr = realpath(filename, actualpath);
+
+	if(ptr == NULL){
+		puts("Error occured on path resolution");
+		return 0;
+	}
+
+	// Validate the file name
+	if(strstr(actualpath, "flag") != NULL){
+		puts("Flag cannot be in the file name");
+		return 0;
+	}
+	if(strstr(actualpath, "etc") != NULL){
+		puts("etc cannot be in the file name");
+		return 0;
+	}
+
+	return 1;
+}
+
 /*
 Takes two parameters as input: the file name and the code type. 
 */
 int main(int argc, char* argv[]){
 
+
 	if(argc != 3){
-		puts("./error <file_name> <code_type>"); 
+		puts("./error_code <file_name> <code_type>"); 
 		return 1;
 	}
 
@@ -60,6 +81,14 @@ int main(int argc, char* argv[]){
 		printf("Please select from the valid character set: %s\n", white_lst); 
 		return 0; 
 	}
+
+	/*
+	// Validate that the file is NOT the flag
+	if(!validate_file(file)){
+		return 0; 		
+	}
+	*/
+	// validate that perl, gcc or python is being used
 	if(strcmp(argv[2], "perl") != 0 && strcmp(argv[2], "python") != 0 && strcmp(argv[2], "php") != 0){
 		puts("Select from the following programs: perl, python and gcc"); 	
 		return 1; 
