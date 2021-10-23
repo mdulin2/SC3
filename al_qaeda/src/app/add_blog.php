@@ -6,7 +6,7 @@
  </head>
  <body>
     <div display = "flex" style ="display: flex; justify-content: space-evenly; border: 5px solid black;">
-        <a href="/home.php">Home</a>  <a href="/blog.php">Blog</a>  <a href="/login.php">Member Login</a>
+        <a href="/index.php">Home</a>  <a href="/blog.php">Blog</a>  <a href="/login.php">Member Login</a>
     </div>
    <h1> <center>Add a Post - Verified Members Only</center></h1>
    <div>
@@ -37,7 +37,7 @@ session_start();
  
 // Do authorization check 
 if (!isset($_SESSION["user_id"])) {
-    header("location: home.php");
+    header("location: index.php");
     exit; // prevent further execution, should there be more code that follows
 }
 

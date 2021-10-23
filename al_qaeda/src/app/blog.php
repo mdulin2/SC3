@@ -7,7 +7,7 @@
  </head>
  <body>
     <div display = "flex" style ="display: flex; justify-content: space-evenly; border: 5px solid black;">
-        <a href="/home.php">Home</a>  <a href="/blog.php">Blog</a>  <a href="/login.php">Member Login</a>
+        <a href="/index.php">Home</a>  <a href="/blog.php">Blog</a>  <a href="/login.php">Member Login</a>
     </div>
    <h1> <center>Blog - Learning the Truth</center></h1>
 
@@ -35,25 +35,36 @@ function display_blog_post($id, $title, $author, $content, $partial){
 // Create the query
 $id = $_GET["id"]; 
 if ($id){
-    $query = "select id, title, author, content FROM blog WHERE id = " . $id . " ORDER BY id DESC;"; 
+    $query = "select id, title, author, content FROM blog WHERE id = " . $id . " ORDER BY id DESC;";
     $partial = false; 
 }
 else {
-    $query = "select id, title, author, content FROM blog ORDER BY id DESC;";
+    $query = "select id, title, author, content FROM blog ORDER BY id DESC LIMIT 1, 3;";
     $partial = true; 
 }
 
+
+
 // Get the data for the blog post
 $result = $connection->query($query);
+
+// Check & display error from the query
+if (!$result) {
+    echo "\nPDO::errorInfo():\n";
+    print_r($connection->errorInfo());
+}
+
 $result->setFetchMode(PDO::FETCH_ASSOC);
+
 
 // SQL returned as expected
 if($result){
     // Display each blog post
     $count = 0; 
     while ($row = $result->fetch()){
+
         display_blog_post($row['id'], $row['title'], $row['author'], $row['content'], $partial); 
-        $count = count + 1; 
+        $count = $count + 1; 
     }
 
     // If no posts were found for the particular ID
@@ -62,7 +73,7 @@ if($result){
     }
 }
 else {
-    // Want to log some errors here... TODO
+     echo $connection->errorInfo();
 }
 
 

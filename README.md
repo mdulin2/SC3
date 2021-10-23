@@ -39,8 +39,9 @@ The goal is to have something like 30-40 challenges from all different categorie
 
 ### Web 
 - **Al Qaeda Blog**
-	- SQLi to get a flag from the database (6) 
-	- Leaking credentials to get one of the flags (7) 
+	- SQLi to get a flag from the database (4)
+	- SQLi to leak admin password hash (7)
+	- Crack MD5 hash (5) 
 - **POST_DELETE**: 
 	- Make POST and DELETE requests to an endpoint
 - **Nailterest**:
