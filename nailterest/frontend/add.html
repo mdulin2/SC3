@@ -15,7 +15,7 @@
 		console.log(new_link);
 
         	// Make a web request to get all users in the system
-        	fetch('http://localhost:5000/add_link', {
+        	fetch('http://localhost:8081/add_link', {
 			method: 'POST', 
 			body: JSON.stringify({"magic_link" : magic,"link" : new_link}),
 			headers: {
@@ -69,7 +69,16 @@
 		Nailterest - Add New Link
         </h1>
 	<div id="add_link">
-
+		<p>Here's what you can add: 
+		<ul>
+			<li>
+				Add images to embed into your profile.
+			</li>
+			<li>
+				Add .txt and .md files. We pull this directly from our backend.
+			</li>
+		</ul>
+		</p>
 		<form id="link_form">
 			<label>Magic Value: </label>
 			<input type="text" id="magic"/><br/>	

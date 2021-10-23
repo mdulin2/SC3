@@ -5,7 +5,7 @@
 	<script>
 	
 	// Make a web request to get all users in the system
-	fetch('http://localhost:5000/get_users')
+	fetch('http://localhost:8081/get_users')
 	.then((response) => response.json())
     	.then(function(data){
 
@@ -17,7 +17,7 @@
 			console.log(users[index]);	
 			// For each user, add a link and a name that is clickable
 			var link = document.createElement("a");
-			link.href = "http://localhost:8000/profile.html?username=" + users[index];
+			link.href = "http://localhost:8080/profile.html?username=" + users[index];
 			var link_text = document.createTextNode(users[index]); 	
 			link.appendChild(link_text);
 			var main_node = document.createElement("P");

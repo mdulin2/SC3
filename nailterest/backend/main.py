@@ -3,6 +3,7 @@ In order to run this, install the following:
 - python3 
 - flask 
 - flask_cors 
+- requests 
 
 To run: 
 - `python3 main.py`
@@ -59,7 +60,7 @@ def get_text():
 	text = functionality.get_text(link)	
 
 	# If the flag is equal the data being returned
-	flag_file = open("../flag.txt")
+	flag_file = open("../../flag.txt")
 	flag = flag_file.read()
 	
 	if(text == flag):
@@ -84,4 +85,4 @@ def get_users():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8081, debug=True)

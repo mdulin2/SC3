@@ -1,13 +1,13 @@
 Add_link: 
-curl -X POST http://127.0.0.1:5000/add_link -H "Content-Type: application/json" --data '{"magic_link" : "0Rbdw6RO6y45G3oRTkP/9r0KcRTcT2OOXlALctIeRXqSetNZxvnzelo5depqjJrnUlddnuFG2Ieg3JB7WLULC7n9/dvyigx8U12gFLkbaAu6SrXZlSL/0YKymFhEjcnKAgeDuw==", "link" : "https://maxwelldulin.com"}' 
+curl -X POST http://127.0.0.1:8081/add_link -H "Content-Type: application/json" --data '{"magic_link" : "0Rbdw6RO6y45G3oRTkP/9r0KcRTcT2OOXlALctIeRXqSetNZxvnzelo5depqjJrnUlddnuFG2Ieg3JB7WLULC7n9/dvyigx8U12gFLkbaAu6SrXZlSL/0YKymFhEjcnKAgeDuw==", "link" : "https://maxwelldulin.com"}' 
 
 Get Links for user: 
-curl -X GET http://127.0.0.1:5000/get_link?username=van
+curl -X GET http://127.0.0.1:8081/get_link?username=van
 
 Create User: 
-curl -X POST http://127.0.0.1:5000/create_user -H "Content-Type: application/json" --data '{"username" : "van"}'
+curl -X POST http://127.0.0.1:8081/create_user -H "Content-Type: application/json" --data '{"username" : "van"}'
 
 Get Text: 
-curl http://localhost:5000/get_text?link=http://localhost:6000/flag.txt
+curl http://localhost:8081/get_text?link=http://localhost:6000/flag.txt
 
 

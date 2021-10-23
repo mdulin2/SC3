@@ -8,7 +8,7 @@
 	const urlParams = new URLSearchParams(queryString);
 	const username = urlParams.get('username');
 
-	fetch('http://localhost:5000/get_link?username=' + username)
+	fetch('http://localhost:8081/get_link?username=' + username)
 	.then((response) => response.json())
     	.then(function(data){
 
@@ -53,7 +53,7 @@
 			var element = document.createElement("P");
 			var content_text = document.createTextNode("Content Link: " + link + ":");	
 
-			fetch("http://localhost:5000/get_text?link=" + link + "&username=" + username)
+			fetch("http://localhost:8081/get_text?link=" + link + "&username=" + username)
 			.then((response) => response.text())
 
 			.then(function(data){
