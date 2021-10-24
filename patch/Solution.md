@@ -84,3 +84,7 @@
 
 ## More Solutions 
 - Live Overflow (tagged in the Challenge file) gives multiple ways to edit this.
+
+## Flag 
+- SC3{dr1nk_a11_the_B00z_hack_a11_tHe_things}
+

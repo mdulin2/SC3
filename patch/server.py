@@ -51,7 +51,7 @@ def validate(filename):
 
 # Executes the code and returns the result
 def execute(filename):
-    os.chmod(filename,777)
+    os.chmod(filename,0o777)
     output = subprocess.check_output([filename])
     return output 
 
@@ -66,7 +66,8 @@ def server(s=None,sc=None):
     sc, address = s.accept()
             
     # Generate the random file 
-    newfile = "./tmp/" + randomString()
+    newfile = "/tmp/" + randomString()
+
     f = open(newfile,"bw") # open in binary
 
     line = sc.recv(1024)
@@ -95,7 +96,7 @@ def server(s=None,sc=None):
 # Runs the web server
 def main():
     s = socket.socket()
-    s.bind(("localhost",3004))
+    s.bind(("0.0.0.0",10004))
     s.listen(10)
 
     # Runs the main server in a loop.

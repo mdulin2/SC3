@@ -26,7 +26,7 @@ s = socket.socket()
 s.connect((IP,int(PORT)))
 
 print("Opening file...") 
-f = open (FILENAME, "r")
+f = open (FILENAME, "rb")
 line = f.read(1024)
 
 print("Sending the file...")
@@ -38,7 +38,8 @@ s.shutdown(socket.SHUT_WR)
 print("Sent file!")
 reply = s.recv(1024) # Feedback: would like the receive feedback from the server.
 
+# Show the output of the program 
 print("Execution output: \n")
-print(reply)
+print(reply.decode('ascii'))
 s.close()
 
