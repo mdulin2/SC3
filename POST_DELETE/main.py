@@ -12,7 +12,9 @@ from flask import request
 
 app = Flask(__name__)
 
-flag = "flg{HTTP_re3pon3e_c0de3!}"
+# Open the flag file
+with open('flag.txt') as f:
+	flag = f.read()
 flg_1, flg_2 = flag[:int(len(flag)/2)], flag[int(len(flag)/2):] # Cut the string in half
 
 @app.route("/route1", methods=['POST'])
@@ -24,4 +26,4 @@ def patch():
 	return flg_2 + '\n'
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=8084) 
