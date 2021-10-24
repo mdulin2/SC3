@@ -7,8 +7,11 @@ from slimit import ast
 from slimit.parser import Parser
 from slimit.visitors import nodevisitor
 import re
+import json 
 
 app = Flask(__name__)
+secrets_file = open("secrets_config.json")
+secrets_dict = json.load(secrets_file)
 
 @app.route('/', methods=['POST', 'GET'])
 def xss1():
@@ -22,10 +25,20 @@ def xss1():
 
     flag = None
     if len(scripts) > 0:
-        flag = "ezpz_xss_squeezy"
+        flag = secrets_dict['flag1']
 
     return render_template('xss1.html', userInput=Markup(userInput), flag=flag)
 
+def filter_on_event(tag):
+        if(tag.name != "input" or (len(tag.attrs) <= 2)):
+            return False
+
+        keys = list(tag.attrs.keys())
+        print(keys) 
+        for key in keys:
+            if(key[0:2] == "on"):
+                return True
+        return False
 
 @app.route('/xss2', methods=['POST', 'GET'])
 def xss2():
@@ -37,17 +50,24 @@ def xss2():
     html = render_template('xss2.html', userInput=Markup(userInput))
     soup = BeautifulSoup(html)
 
-    scripts = soup.findAll(lambda tag:tag.name == "input" and len(tag.attrs) > 2 and list(tag.attrs.keys())[2][0:2] == 'on')
-
+    scripts = soup.findAll(filter_on_event)
+    
     flag = None
     if len(scripts) > 0:
-        attr = list(scripts[0].attrs.keys())[2]
+
+        attrs = list(scripts[0].attrs.keys())
+        attr = None
+        for elt in attrs:
+            if(elt[0:2] == "on"):
+                attr = elt
+        if(attr == None):
+            return render_template('xss2.html', userInput=Markup(userInput), flag=flag)
         data = scripts[0][attr]
         parser = Parser()
         tree = parser.parse(data)
         for node in nodevisitor.visit(tree):
             if 'alert(1)' in node.to_ecma():
-                flag = "xss_on_event_fun_fun"
+                flag = secrets_dict['flag2']
 
     return render_template('xss2.html', userInput=Markup(userInput), flag=flag)
 
@@ -72,7 +92,7 @@ def xss3():
         tree = parser.parse(data)
         for node in nodevisitor.visit(tree):
             if 'alert(1)' in node.to_ecma():
-                flag = "xss_sneaky_clever_fren"
+                flag = secrets_dict['flag3']
     except:
         pass
 
@@ -95,7 +115,7 @@ def xss4():
             tree = parser.parse(match)
             for node in nodevisitor.visit(tree):
                 if 'alert(1)' in node.to_ecma():
-                    flag = "xss_templeet_string"
+                    flag = secrets_dict['flag4']
     except:
         pass
 
@@ -119,7 +139,7 @@ def xss5():
         tree = parser.parse(data)
         for node in nodevisitor.visit(tree):
             if 'alert(1)' in node.to_ecma():
-                flag = "iframe_shenanigans_xss"
+                flag = secrets_dict['flag5']
     except:
         pass
 

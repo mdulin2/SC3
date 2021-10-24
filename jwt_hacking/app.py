@@ -2,9 +2,12 @@ from flask import Flask, jsonify, request, make_response, render_template, url_f
 from functools import wraps
 import jwt
 import datetime
+import json
 
 app = Flask(__name__, static_folder=None)
-app.config['SECRET_KEY'] = 'secret'
+secrets_file = open("secrets_config.json")
+secrets_dict = json.load(secrets_file )
+app.config['SECRET_KEY'] = secrets_dict['secret']
 
 
 def check_for_token(func):
@@ -36,14 +39,14 @@ def public():
 @app.route('/private')
 @check_for_token
 def private():
-    return 'flg{Mr_private_page_Im_1n}'
+    return secrets_dict['flag1']
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         token = jwt.encode({
             'user': 'User',
-            'flag': 'flg{congratulations}',
+            'flag': secrets_dict['flag2'],
             'iat': datetime.datetime.utcnow(),
             'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)
             },
@@ -77,12 +80,12 @@ def admin():
         print(e)
         return jsonify({'message': 'Invalid token'}), 403
     if data['user'] == 'admin':
-        return 'flg{sudo_gimme_access}'
+        return secrets_dict['flag3']
     else:
         return jsonify({'message': 'Only the admin can see this page! >:V'}), 403
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port = 8082)
 
 

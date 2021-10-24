@@ -11,48 +11,42 @@ There are three flags here:
 - One for cracking the secret on the JWT to create an 'admin' token. 
 
 ## Flag 1
-Log in using the /login endpoint, with the link of the main index page. This will set the 'jwt'   
-in the application cookies under 'session'. provide the token in the URL on the /private endpoint.  
-As long as the token is valid (6 minutes) the user will be presented with a flag as they have   
-successfully authenticated. This is a gimme!
+- Log in using the /login endpoint, with the link of the main index page. 
+- This will set the 'jwt' in the application cookies under 'session'. provide the token in the URL on the /private endpoint.  
+- As long as the token is valid (6 minutes) the user will be presented with a flag as they have successfully authenticated. This is a gimme!
+- flag: SC3{Mr_private_page_Im_1n}
 
 ## Flag 2
-The JWT itself is a base64 encode collection of JSON objects. The JWT itself should on contain   
-any secret information when used in a real environment. 
-  
-To get the flag, base64 decode the content. This can be done with Python, cyberchef, jq and other things.  
-The best (and nicest) way to see the data is at https://jwt.io/. This decodes the token and shows the   
-fields in a very nice way. 
+- The JWT itself is a base64 encode collection of JSON objects. 
+- The JWT itself should not contain  any secret information when used in a real environment. 
+- It is stored as a cookie on the web page. Open up the 'developer tools'->'application' and cookies to see the JWT.
+- To get the flag, base64 decode the content. This can be done with Python, cyberchef, jq and other things.  
+- The best (and nicest) way to see the data is at https://jwt.io/. This decodes the token and shows the fields in a very nice way. 
+- SC3{Reading_the_json_web_token_for_the_win}
 
 ## Flag 3
-The /admin endpoint checks for a JWT with a username of 'admin' AND validates the JWT signatures.   
-Because the signature check is done, the only way to be able to craft a fake token is to *crack the secret*.   
-  
-Players will need to crack the secret key ('secret', should crack in about 5 seconds with rockyou.txt)   
-to create their own JWT. What's the easist way to do this crack!? Well, there are a few ways. 
-  
-The creator of this challenge (Rachael Hardin) created a few scripts for doing this. The solution for
-BOTH cracking the secret and signing the secret are in interactive Python scripts under 'solutions_scripts'.   
-  
-The other way to go about this is to use one of the off the shelf tools to do the cracking. The tool   
-https://github.com/ticarpi/jwt_tool works quite well for this purpose (and signing as well). The command   
-for using this tool looks like the following:   
-```
-python3 jwt_tool.py <token> -C -d rockyou.txt
-```
-The list of secrets to guess can be found with the standard *rockyou.txt* wordlist.   
-https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/rockyou-50.txt is a good   
-locaiton to find it, if somebody is having trouble.   
-Either way, the secret that will be spat out is ``secret``, which is super fitting.   
-  
-Once we have the secret, we need to `sign` the JWT with the ADMIN user. This can be done using ``jwt_creator``   
-in the 'solutions_script' directory, by going to https://jwt.io with the secret and the value to modify with   
-or a plethora of other tools. An example with the 'jwt_tool' repo linked above is shown below: 
+- The /admin endpoint checks for a JWT with a username of 'admin' AND validates the JWT signatures.   
+- Because the signature check is done, the only way to be able to craft a fake token is to *crack the secret*.   
+- Players will need to crack the secret key ('secret', should crack in about 5 seconds with rockyou.txt)  to create their own JWT. What's the easist way to do this crack!? Well, there are a few ways. 
+    - The creator of this challenge (Rachael Hardin) created a few scripts for doing this. - The solution for BOTH cracking the secret and signing the secret are in interactive Python scripts under 'solutions_scripts'.   
+    - The other way to go about this is to use one of the off the shelf tools to do the cracking. 
+    - The tool  https://github.com/ticarpi/jwt_tool works quite well for this purpose (and signing as well). 
+    - The command for using this tool looks like the following:   
+        ```
+        python3 jwt_tool.py <token> -C -d rockyou.txt
+       ```
+    - The list of secrets to guess can be found with the standard *rockyou.txt* wordlist.   
+        - https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/rockyou-50.txt is a good  location to find it, if somebody is having trouble.   
+        - Either way, the secret that will be spat out is ``secret``, which is super fitting.   
+    - The website http://jwtbuilder.jamiekurtz.com/ will build these for you as well, as long as you know the secret.
+- Once we have the secret, we need to `sign` the JWT with the ADMIN user. 
+- This can be done using ``jwt_creator``  in the 'solutions_script' directory, by going to https://jwt.io with the secret and the value to modify with  or a plethora of other tools. An example with the 'jwt_tool' repo linked above is shown below: 
 ```
 python3 jwt_tool.py  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiVXNlciIsImZsYWciOiJmbGd7Y29uZ3JhdHVsYXRpb25zfSIsImlhdCI6MTYyMjg0MjA5NSwiZXhwIjoxNjIyODQ1Njk1fQ.W50C1U-y21usmuUFe_NO6lNWTTQUCDbL-DtCpNLR0E0 -S hs256 -p "secret"
 
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 ```
 
-With the newly signed JWT in hand, set the value of the `session` cookie to be the newly created JWT. Now, when going to   
-the 'admin' endpoint, you'll be greeted with the flag. 
+- With the newly signed JWT in hand, set the value of the `session` cookie to be the newly created JWT. 
+- Now, when going to  the 'admin' endpoint, you'll be greeted with the flag. 
+- SC3{sudo_gimme_access}
