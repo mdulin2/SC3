@@ -9,17 +9,7 @@ The goal is to become the admin user on the site.
 - client/: The frontend for the application 
 
 ## Using the application 
-- This is a react application with a express backend. 
-- First add the username, password and database name to all the express files are configuration. 
-- Run auth.sql and koreanFood.sql to seed the databases
-	- Also, change the credentials in the database configuration file for the backend. 
-- backend: 
-	- Run 'npm install' to install all of the packages 
-	- Run 'npm start' to run the backend 
-- frontend: 
-	- Run 'yarn' to install all of the packages
-	- Run 'yarn start' to run the frontend 
-	- The frontend has three routes: 
-		- /login  - login as a user
-		- /register  - create a user
-		- /korenFood (while authenticated) - query korean food 
+- This is a react application with an express backend that uses MySQL. 
+- Start in the docker container. This can be done with ``./docker_run``.
+- The site will run on port 8085 and 8086
+

@@ -1,3 +1,5 @@
+USE injection;
+
 DROP TABLE IF EXISTS korean_food;
 
 CREATE TABLE korean_food

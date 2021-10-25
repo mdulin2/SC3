@@ -4,13 +4,14 @@ var express = require("express");
 var router = express.Router();
 var mysql = require("mysql");
 const auth = require('./auth');
+fs = require('fs');
 
 class Database {
   constructor(config) {
     this.connection = mysql.createConnection({
       host: "localhost",
       user: "root",
-      password: "Airjordan23",
+      password: "ChoosePassword",
       database: "injection"
     });
   }
@@ -65,8 +66,8 @@ router.post("/", async function(req, res, next) {
 	const foodResponse = await foodQuery(food_name);
 	
 	// Adds the flag if this is the admin user. 
-	const flag = "flg{some_flag}"
 	if(authenticated.is_admin == true){
+    flag = await fs.readFileSync('../flag.txt', 'utf8'); 
 		const food_obj = {"food_id" : "-1", "food_name" : "FLAG!", "price" : "♾", "description" : flag }; 
 		foodResponse.push(food_obj);
 	}

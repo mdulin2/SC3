@@ -1,3 +1,5 @@
+USE injection;
+
 DROP TABLE IF EXISTS Login;
 DROP TABLE IF EXISTS Sessions;
 
@@ -9,9 +11,9 @@ CREATE TABLE Login(
 
 charset utf8 collate utf8_general_ci; 
 
--- admin - peanutsnoopy
+-- admin - Quinoa&Barley
 INSERT INTO Login(username, password, is_admin) VALUES
-    ('admin','0HzNiFHYj+nNFqmSzZY+8It36pHIScJR0nIGmhKA/', true);
+    ('admin','gG9I2mb/58Ew3ONyqy91Q1W9663H21VT9SDfIeF+Pzo=', true);
 
 CREATE TABLE Sessions(
 	ID int NOT NULL AUTO_INCREMENT,
