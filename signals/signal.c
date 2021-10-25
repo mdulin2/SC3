@@ -27,7 +27,7 @@ void* print_flag() {
 
 // The code for the CHILD process
 void* child_process(){
-	puts("Stopping child process...");
+	puts("Stopping child process with signal 'SIGSTOP'...");
 	raise(SIGSTOP); // SIGSTOP = 19 - This is signal call 19
 	print_flag();
 	return;
@@ -42,12 +42,8 @@ void* parent_process(pid_t pid1){
 	sleep(2); // Allow the child process to execute first
 	printf("Child process ID: %d\n", pid1);
 	
-	// Get the process ID
-	printf("Enter a process ID: ");
-	scanf("%d", &input_pid);
-	
 	// Get the signal to use
-	printf("Enter a signal call: ");
+	printf("Enter a signal call to send to pid %d: ", pid1);
 	scanf("%d", &signal_call);	
 		
 	// Send the signal call	
