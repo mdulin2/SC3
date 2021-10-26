@@ -15,7 +15,7 @@ The purpose of this challenge is to get students to learn about signals and sysc
 - The `kill` function sends a signal to a particular process. The function looks like this: kill(pid,SIGCALL)
 - By sending the child PID (which is printed) and the SIGCONT (18) signal to the program, the child process will continue executing. 
 - Now, the flag should print!
-
+- Flag: SC3{sIgNA1s_ma[3_7HE_W0rLd_G0_R0uND}
 
 For more on signals learn at these places: 
 - https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/lec/19/lec.html 
