@@ -1,0 +1,5 @@
+hello_world.c: In function 'main':
+hello_world.c:49:9: warning: format not a string literal and no format arguments [-Wformat-security]
+   49 |  printf(arg_buf);
+      |         ^~~~~~~
+

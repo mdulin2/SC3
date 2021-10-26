@@ -1,3 +1,4 @@
+
 #include <stdio.h> 
 #include <stdlib.h>
 #include <string.h>
@@ -26,26 +27,27 @@ char* get_flag(){
 
 // Take my string, into a new buffer and print it!
 int main(int argc, char* argv[]){
-
+	char flag_buf[40]; // Tmp buffer for the flag
+	char arg_buf[100];
+	
 	if(argc != 2){
 		puts("./hello_world <echoed_string>");
 		return 0;
 	}
 
+	// Retrieve the flag for the 'flag.txt' file
 	char* flag = get_flag();	
-
-	char flag_buf[40]; // Tmp buffer for the flag
-
 	int my_len = strlen(argv[1]);
 
 	// Copy flag into local buffer
 	strncpy(flag_buf, flag, 40);
-	
+
+	// Copy my argument into a local buffer to trim it.
+	strncpy(arg_buf, argv[1], 100);
+
 	// Print my string from the command line!	
-	printf(argv[1]);
+	printf(arg_buf);
 	printf("\n");
 
-	memset(flag_buf, 0, 40);	
 	return 0;
-
 }

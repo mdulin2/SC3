@@ -40,9 +40,13 @@
 ## Auth
 ### Vuln Hunting:
 - First, figure out the vuln. By putting in too many characters, a seg fault is created...Or, by reading the source code, there is no check on the input size of the buffer.
+- Since the stack stores important information, overwriting it will cause a segmentation. Most importantly, the stack holds the *return address*. 
+	- It is our goal to edit the *return address* to point to something that we want to call.
 - Second, figure out the offset. This can be done in GDB, by manually looking at the stack during execution or using something like pattern.py. The offset should be 40 characters. The 40-43 characters are the return address on the stack.
 - Third, go into GDB to figure out the address of the function "do_valid_stuff". Do this by typing in `disas do_valid_stuff`. This will give you an address to jump the flow of the program to.
     - I use `disas do_valid_stuff`, then use the beginning address of the function to find where we need to go.
+
+### Exploit
 - Now, it is time to craft the exploit.
     - 1. Start with the offset. Print out 28 characters, because the offset was 28.
     - 2. Because the OS's Endian, we need to turn the Big Endian (i.e. 0x804848b) into little Endian (i.e. 0xbc840408). Notice that this is PER byte. 
@@ -50,8 +54,8 @@
     - 4. If all is done write, you should have redirected execution of the program to where the flag is at, displaying the flag.
     - 5. My final payload is `python -c 'print "AAAA" * 11 + "\x87\x92\x04\x08"' | ./auth`
 		- The exact address will differ from system to system though. 
-		
-## Further explanation:
+
+### Further explanation:
 - How the stack works:
     - On load of a function, the function address is pushed, followed by ebp then local variables (if needed).
     - Last on, first off style.
