@@ -27,7 +27,9 @@ int do_valid_stuff(){
             putchar(c); 
         fclose(fp);
 
-    }
+    }else {
+          puts("Unable to read flag");
+          }
 }
 
 int main( int argc, char *argv[]){

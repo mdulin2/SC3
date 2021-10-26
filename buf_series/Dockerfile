@@ -3,6 +3,8 @@ FROM ubuntu:18.04
 # Add GDB, Python, SSH, gcc and curl
 RUN apt-get update -y && DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt install openssh-server g++-multilib vim gdb gcc python git curl bsdmainutils nano tmux -y
 
+RUN git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh
+
 # Setup the users
 ## Setup the 'firsty' user 
 RUN useradd -d /home/firsty/ -m -p firsty -s /bin/bash firsty
@@ -52,7 +54,11 @@ RUN chmod 4755  /home/auth/auth
 RUN chmod 400 /home/auth/flag.txt
 RUN chmod 744 /home/auth/auth.c
 
-RUN git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh
+# Setup GDB properly for all of the other users
+RUN chmod 755 /pwndbg
+RUN cp /root/.gdbinit /home/auth/.gdbinit
+RUN cp /root/.gdbinit /home/firsty/.gdbinit
+RUN cp /root/.gdbinit /home/dead/.gdbinit
 
 # SSH server startup. When launching this, specify which port that the SSH (locally port 22) will be bounded to
 RUN mkdir /var/run/sshd

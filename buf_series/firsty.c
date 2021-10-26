@@ -29,6 +29,8 @@ int main(){
 				putchar(c); 
 			fclose(fp);
 			return 0; 
+		}else {
+			puts("Unable to read flag");
 		}
 	}
 	else{

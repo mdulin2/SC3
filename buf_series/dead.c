@@ -34,6 +34,9 @@ int main(){
 			fclose(fp);
 			return 0; 
 		}
+		else {
+			puts("Unable to read flag");
+		}
 	}
 	else{
 		puts("Lit :fire");
