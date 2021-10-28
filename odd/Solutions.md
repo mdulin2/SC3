@@ -9,20 +9,26 @@
 	- / (allows for directory traversal!) 
 	- a,c,e,....
 	- ? (single character wildcard) 
+- Because we cannot use spaces (and wildcards don't work for spaces), we will need to call stand-alone programs for this. Most of them end up being text editors. 
 
-## Solutions
-### Execute script
-- Not allowing for the ability to write to the directory, but WOULD work 
+# Solutions
 
-### Vim 
-- /us?/?i?/?im
+## Vim 
+- ``/us?/?i?/?im``
+- This opens up the 'vim' text editor.
 - Then, run bash command from inside of here
-	- :!cat flag.txt
+	:!cat flag.txt
+	SC3{even_Is_not_odd!gotta_love_the_*}
 
-### Ed 
-- /?i?/e?
+## Ed 
+- ``/?i?/e?``
 - Then, run a bash command from inside of here
 	- !/bin/sh
 
-### Emacs
-- emacs (happens to only have good characters!) 
+## Emacs
+- ``emacs``
+- emacs is another text editor (happens to only have good characters!) 
+
+## Nano
+- ``/bin/n?no``
+- emacs is another text editor (happens to only have good characters!) 
