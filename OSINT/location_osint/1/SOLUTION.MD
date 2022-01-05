@@ -1,1 +1,1 @@
-{copley_square}
+SC3{copley_square}
