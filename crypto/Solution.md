@@ -1,6 +1,5 @@
 - Flag 1: ${the game is zork}
     - Decrypt using a caeser shift of 22 (an arbitrarily chosen number).
     - Can easily be brute-forced.
-- Flag 2: ${The Answer to the Ultimate Question of Life the Universe and Everything is...}
-    - Decrypt using a one-time-pad with a seed of 42 (the answer to life).
-    - See: http://www.math.stonybrook.edu/~scott/Book331/Improved_Caesar_like_cipher.html
+- Flag 2: ${Luke, I am your father.}
+    - Decrypt using a one-time-pad with a key of "Luke, I am your father.", the same as the phrase.

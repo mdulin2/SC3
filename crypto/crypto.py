@@ -1,7 +1,10 @@
 import argparse
+import re
 
 UPPER_A_ORD = ord("A")
 LOWER_A_ORD = ord("a")
+
+IS_LETTER = re.compile("^[a-zA-Z]$")
 
 
 def shift_upper(char: str, shift: int) -> str:
@@ -47,13 +50,16 @@ def one_time_pad_encrypt(phrase: str, key: str) -> str:
         raise ValueError("Key must be at least as long as phrase for encoding a OTP.")
     encrypted_phrase = ""
     for phrase_char, key_char in zip(phrase, key):
-        is_upper = phrase_char.isupper()
-        phrase_ord = ord(phrase_char.lower()) - LOWER_A_ORD
-        key_ord = ord(key_char.lower()) - LOWER_A_ORD
-        encrypted_ord = (phrase_ord + key_ord) % 26
-        encrypted_char = chr(encrypted_ord + LOWER_A_ORD)
-        encrypted_char = encrypted_char.upper() if is_upper else encrypted_char
-        encrypted_phrase += encrypted_char
+        if IS_LETTER.match(phrase_char):
+            is_upper = phrase_char.isupper()
+            phrase_ord = ord(phrase_char.lower()) - LOWER_A_ORD
+            key_ord = ord(key_char.lower()) - LOWER_A_ORD
+            encrypted_ord = (phrase_ord + key_ord) % 26
+            encrypted_char = chr(encrypted_ord + LOWER_A_ORD)
+            encrypted_char = encrypted_char.upper() if is_upper else encrypted_char
+            encrypted_phrase += encrypted_char
+        else:
+            encrypted_phrase += phrase_char
     return encrypted_phrase
 
 
@@ -63,13 +69,16 @@ def one_time_pad_decrypt(encrypted_phrase: str, key: str) -> str:
         raise ValueError("Key must be at least as long as encrypted phrase for decoding a OTP.")
     phrase = ""
     for encrypted_phrase_char, key_char in zip(encrypted_phrase, key):
-        is_upper = encrypted_phrase_char.isupper()
-        encrypted_phrase_ord = ord(encrypted_phrase_char.lower()) - LOWER_A_ORD
-        key_ord = ord(key_char.lower()) - LOWER_A_ORD
-        phrase_ord = (encrypted_phrase_ord - key_ord) % 26
-        phrase_char = chr(phrase_ord + LOWER_A_ORD)
-        phrase_char = phrase_char.upper() if is_upper else phrase_char
-        phrase += phrase_char
+        if IS_LETTER.match(encrypted_phrase_char):
+            is_upper = encrypted_phrase_char.isupper()
+            encrypted_phrase_ord = ord(encrypted_phrase_char.lower()) - LOWER_A_ORD
+            key_ord = ord(key_char.lower()) - LOWER_A_ORD
+            phrase_ord = (encrypted_phrase_ord - key_ord) % 26
+            phrase_char = chr(phrase_ord + LOWER_A_ORD)
+            phrase_char = phrase_char.upper() if is_upper else phrase_char
+            phrase += phrase_char
+        else:
+            phrase += encrypted_phrase_char
     return phrase
 
 
@@ -84,7 +93,7 @@ if __name__ == "__main__":
 
     otp_parser: argparse.ArgumentParser = subparsers.add_parser("otp")
     otp_parser.add_argument("phrase", help="Phrase to encrypt.")
-    otp_parser.add_argument("key", "-K", help="Key for the one-time-pad generator.", required=True)
+    otp_parser.add_argument("key", help="Key for the one-time-pad generator.")
 
     cli_args = parser.parse_args()
     match cli_args.cmd:

@@ -2,5 +2,5 @@ Let's do some crypto! No, not Bitcoins, **cryptography**! Can you decrypt the fo
 
 - Flag 1: ${pda cwia eo vkng!}
     - Hint: Popular text-based game from the 80's.
-- Flag 2: ${Nke Iuzabu qf luf Wrayfakk Kqvfawgv od Qeso zfo Wzlgpkad oeg Gmnlrezoji dz...}
+- Flag 2: ${Woui, Q ay wcoi kamoii.}
     - Hint: What's the answer to life?
