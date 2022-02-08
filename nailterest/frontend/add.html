@@ -1,0 +1,99 @@
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	
+	<title>Nailterest</title>
+	<script>
+		
+	function add_link(){
+
+		// Get the form value of the username
+		var magic = document.getElementById("link_form").magic.value;
+		var new_link = document.getElementById("link_form").link.value;
+		console.log(magic);
+		console.log(new_link);
+
+        	// Make a web request to get all users in the system
+        	fetch('http://localhost:8081/add_link', {
+			method: 'POST', 
+			body: JSON.stringify({"magic_link" : magic,"link" : new_link}),
+			headers: {
+				'Content-Type': 'application/json',
+			}	
+		})
+        	.then((response) => response.text())
+        	.then(function(data){
+				
+			console.log(data);
+			var output_node = document.getElementById("output");	
+			// Link adding failed (could be for authorization reasons or 500 error.
+			if(data === 'False'){
+				output_node.innerHTML = "Link was not added -- validate that your magic value is correct."
+
+			}
+
+			// Successful adding of link
+			else {
+				output_node.innerHTML = "Successfully added link!";
+				document.getElementById("link_form").link.value =  "";
+			}			
+			
+		});		
+	}
+	</script>
+</head>
+
+<body style="background-color:#add8e6; font-family:'Courier New', Courier, monospace; color:green">
+        <div id = "header" style = "display : flex; justify-content : space-evenly">
+                <a href="/index.html">
+                Home
+                </a>
+
+                <a href="/create_user.html">
+                Create
+                </a>
+
+                <a href="/add.html">
+                Add
+                </a>
+                <a href="/info.html">
+                Info
+                </a>
+
+        </div>
+
+
+    <center>
+        <h1>
+		Nailterest - Add New Link
+        </h1>
+	<div id="add_link">
+		<p>Here's what you can add: 
+		<ul>
+			<li>
+				Add images to embed into your profile.
+			</li>
+			<li>
+				Add .txt and .md files. We pull this directly from our backend.
+			</li>
+		</ul>
+		</p>
+		<form id="link_form">
+			<label>Magic Value: </label>
+			<input type="text" id="magic"/><br/>	
+			
+			<label>Link: </label>
+			<input type="text" id = "link"/><br/>
+		</form>
+		<button type=submit" value = "Submit" onClick="add_link()">Submit </button>
+	
+	</div>
+	<div>
+		<p id = "output">
+		</p>
+	</div>
+	
+    </center>
+</body>
+</html>

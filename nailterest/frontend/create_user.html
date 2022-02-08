@@ -1,0 +1,88 @@
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	
+	<title>Nailterest</title>
+	<script>
+		
+	function create_user(){
+
+		// Get the form value of the username
+		var username = document.getElementById("user_form").username.value;
+		console.log("username");
+	
+        	// Make a web request to get all users in the system
+        	fetch('http://localhost:8081/create_user', {
+			method: 'POST', 
+			body: JSON.stringify({"username" : username}),
+			headers: {
+				'Content-Type': 'application/json',
+			}	
+		})
+        	.then((response) => response.text())
+        	.then(function(data){
+				
+			console.log(data);
+			var output_node = document.getElementById("output");	
+			// Username already taken...
+			if(data === 'False'){
+				output_node.innerHTML = "Username " + username + " already exists... please try with a different username"; 	
+
+			}
+
+			// Successful user creation
+			else {
+				text = "Username " + username + " has been created!<br/>"; 
+				text += "Use the following code for adding links to your profile: <br/> " + data;	
+				output_node.innerHTML = text;
+
+			}			
+
+			
+		});
+		
+	}
+	</script>
+</head>
+
+<body style="background-color:#add8e6; font-family:'Courier New', Courier, monospace; color:green">
+        <div id = "header" style = "display : flex; justify-content : space-evenly">
+                <a href="/index.html">
+                Home
+                </a>
+
+                <a href="/create_user.html">
+                Create
+                </a>
+
+                <a href="/add.html">
+                Add
+                </a>
+                <a href="/info.html">
+                Info
+                </a>
+
+        </div>
+
+    <center>
+        <h1>
+		Nailterest - Create User
+        </h1>
+	<div id="create_user">
+
+		<form id="user_form">
+			<label>Username: </label>
+			<input type="text" id="username"/><br/>	
+		</form>
+		<button type=submit" value = "Submit" onClick="create_user()">Submit</button>
+	
+	</div>
+	<div>
+		<p id = "output">
+		</p>
+	</div>
+	
+    </center>
+</body>
+</html>

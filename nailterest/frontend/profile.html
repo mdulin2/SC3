@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+	<title>Nailterest</title>
+	<script>
+
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const username = urlParams.get('username');
+
+	fetch('http://localhost:8081/get_link?username=' + username)
+	.then((response) => response.json())
+    	.then(function(data){
+
+		var links = data.link;
+		// Iterate over each link
+		for (var index = 0; index < links.length; index++){
+				
+			set_link(links[index][0], username);
+		}
+	})
+	.catch(function(error) {
+		console.log('Request failed:', error.message);
+	});
+
+	// Add the content of a single link to the page
+	function set_link(link, username){
+
+		// Figure out the type
+		const split_len = link.split(".").length;
+		const ending = link.split(".");
+		const type = ending[split_len -1];
+		
+		// If image, grab it directly 
+		if(type === 'jpeg' || type === 'gif' || type === 'png' || type === 'jpg'){
+			content = "<div> <img src = '" + link + "'>" + link + "</img></div>";
+			var image_text = document.createTextNode("Image Link: " + link + ":");	
+			var image = document.createElement("img");
+			image.src = link;
+			image.width = "300";
+	
+			var element = document.createElement("P");
+			var break_elt = document.createElement("BR"); 
+			element.appendChild(image_text);
+			element.appendChild(break_elt);
+			element.appendChild(image);
+
+		}
+		// Handle a text or MD file
+		else if (type === 'txt' || type === 'md'){
+
+			// Send to the backend to get and process the content of the file
+			var element = document.createElement("P");
+			var content_text = document.createTextNode("Content Link: " + link + ":");	
+
+			fetch("http://localhost:8081/get_text?link=" + link + "&username=" + username)
+			.then((response) => response.text())
+
+			.then(function(data){
+				console.log(data);
+				var break_elt = document.createElement("BR"); 
+				element.appendChild(content_text);
+				element.appendChild(break_elt);
+				my_text_file = document.createTextNode(data);
+				element.appendChild(my_text_file);
+				var node = document.getElementById("my_links");
+				node.appendChild(element);
+
+			})
+			.catch(function(error) {
+				console.log('Request failed:', error.message);
+			});
+
+		}
+
+		// When an undisplayable type is attempted
+		else {
+			var element = document.createElement("P");
+			var break_elt = document.createElement("BR"); 
+			content = document.createTextNode("Invalid Type for link: " + link);
+			element.appendChild(content);
+			element.appendChild(break_elt);
+			var node = document.getElementById("my_links");
+			node.appendChild(element);
+
+		}
+				
+		var node = document.getElementById("my_links");
+		node.appendChild(element);
+	}
+	
+    </script>
+</head>
+
+<body style="background-color: #add8e6; font-family:'Courier New', Courier, monospace; color:green">
+
+        <div id = "header" style = "display : flex; justify-content : space-evenly">
+                <a href="/index.html">
+                Home
+                </a>
+
+                <a href="/create_user.html">
+                Create
+                </a>
+
+                <a href="/add.html">
+                Add
+                </a>
+                <a href="/info.html">
+                Info
+                </a>
+
+        </div>
+	
+	<center>
+	<h1 id="main">
+		Nailterest Profile
+	</h1>
+	<div id="my_links">
+
+	</div>
+	
+	</center>

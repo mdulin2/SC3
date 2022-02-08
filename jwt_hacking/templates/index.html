@@ -1,0 +1,11 @@
+{# all_links.html #}
+<title>Welcome to my secure webserver!</title>
+<body>
+This site is protected by JSON Web Tokens utilizing the unhackable HS256 algorithm.
+<ul>
+{% for url, endpoint in links %}
+<li><a href="{{ url }}">{{ endpoint }}</a></li>
+{% endfor %}
+</ul>
+</body>
+
