@@ -91,7 +91,7 @@ The goal is to have something like 30-40 challenges from all different categorie
 - **even**:
 	- Run bash commands with either ONLY odd or even characters. 
 	- Even is MUCH harder than odd because the / cannot be used with even.
-- Linux Hardening 
+- Linux Hardening (Joseph Riddle): 
 
 ### Reversing (Zach) 
 - **1: First reverse**
